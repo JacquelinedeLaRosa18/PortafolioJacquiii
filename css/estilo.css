@@ -1,0 +1,262 @@
+/* --- Variables de Color --- */
+:root {
+    --primary-color: #1e90ff;
+    --secondary-color: #ff6347;
+    --background-color: #f9f9f9; 
+    --text-color: #333333;
+    --celeste-box: #ADD8E6;
+    --salmon-box: #FA8072;
+    --button-color-gray: #888888;
+    --button-hover-gray: #666666;
+
+    --slide-bg-dark: #222;
+    --label-bg-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente para las etiquetas de categoría */
+}
+
+/* --- Estilos Generales y del Body --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* --- Estilos del Paralaje (Imagen de arriba) --- */
+.parallax-hero {
+    background-image: url('../img/portfolio.gif'); /* Ajusta la ruta si es necesario */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px; /* Espacio debajo del parallax */
+}
+
+/* --- Estilos del Header --- */
+header {
+    background-color: #333;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.logo img {
+    height: 50px;
+}
+
+/* --- Estilos de la Barra de Navegación (topnav) --- */
+.topnav {
+    background-color: #555;
+    overflow: hidden;
+    text-align: center;
+    padding: 10px 0;
+    position: sticky; /* Se mantiene en la parte superior al hacer scroll */
+    top: 0;
+    z-index: 100;
+}
+
+.topnav a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* --- Estilos del Contenedor Principal de la Página de Inicio (main) --- */
+.home-content-container {
+    display: flex;
+    justify-content: center; /* Centra el contenido general */
+    align-items: flex-start; /* Alinea los ítems al principio (arriba) */
+    max-width: 1200px; /* Ancho máximo del contenedor completo */
+    margin: 30px auto; /* Centra el contenedor horizontalmente y da espacio arriba */
+    padding: 0 20px; /* Padding interno */
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding-bottom: 40px;
+}
+
+/* --- Estilos de la Sección de Perfil (izquierda) --- */
+.profile-section {
+    flex-shrink: 0; /* No se encogerá */
+    width: 300px; /* Ancho fijo para la columna de perfil */
+    padding-top: 40px;
+    padding-left: 20px;
+    text-align: left; /* Títulos alineados a la izquierda */
+}
+
+.profile-section h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.8em;
+    color: var(--text-color);
+}
+
+.profile-section p {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1em;
+    color: #666;
+}
+
+.profile-button {
+    display: block;
+    width: 250px; /* Ancho de la foto de perfil */
+    height: 250px; /* Alto de la foto de perfil (cuadrada) */
+    margin: 20px 0 20px 0;
+    overflow: hidden;
+    border-radius: 8px; /* Bordes ligeramente redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.profile-button:hover {
+    transform: scale(1.05);
+}
+
+/* --- Estilos de la Sección de Categorías (derecha) --- */
+.categories-section {
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    flex-grow: 1; /* Permite que ocupe el espacio restante a la derecha */
+    gap: 15px; /* Espacio vertical entre cada categoría */
+    padding-top: 40px; /* Alinea con la sección de perfil */
+    padding-right: 20px; /* Pequeño padding al borde derecho del contenedor principal */
+    margin-left: 60px; /* Espacio entre la sección de perfil y las categorías */
+    /* No se necesita un max-width aquí, ya que queremos que ocupe 'hasta la mitad' del espacio disponible */
+}
+
+.category-slide-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-slide {
+    /* Aquí es donde definimos las dimensiones rectangulares */
+    width: 100%; /* Ocupa el 100% del ancho disponible en su contenedor (.categories-section) */
+    height: 150px; /* ALTURA de cada rectángulo. Ajusta este valor si lo quieres más alto o bajo. */
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden;
+    position: relative;
+    background-color: var(--slide-bg-dark); /* Color de fondo si la imagen no carga */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para los rectángulos */
+    cursor: pointer;
+}
+
+.category-slide:hover {
+    transform: scale(1.02); /* Ligeramente más grande al pasar el cursor */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al hover */
+}
+
+.category-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* La imagen cubre todo el rectángulo */
+    display: block;
+}
+
+.category-label {
+    position: absolute;
+    bottom: 10px; /* Distancia desde abajo */
+    left: 10px; /* Distancia desde la izquierda */
+    background-color: var(--label-bg-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+
+/* --- Media Queries para responsividad --- */
+@media (max-width: 1024px) {
+    .home-content-container {
+        flex-direction: column; /* Apila las columnas (perfil y categorías) */
+        align-items: center; /* Centra el contenido apilado */
+        gap: 40px;
+        padding: 20px;
+    }
+
+    .profile-section {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        max-width: 300px; /* Pero con un máximo para que no sea muy grande */
+        padding-top: 0;
+        padding-left: 0;
+        text-align: center; /* Centra el texto del perfil en pantallas pequeñas */
+    }
+    .profile-section h3, .profile-section p {
+        text-align: center; /* Centra los títulos del perfil */
+    }
+
+    .profile-button {
+        margin: 20px auto; /* Centra el botón de perfil horizontalmente */
+    }
+
+    .categories-section {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        max-width: 500px; /* Ancho máximo para los rectángulos de categoría */
+        padding-top: 0;
+        padding-right: 0;
+        margin-left: 0; /* Elimina el margen lateral cuando se apila */
+    }
+
+    .category-slide {
+        height: 180px; /* Ajusta la altura de los rectángulos en tablets si es necesario */
+    }
+}
+
+@media (max-width: 600px) {
+    .parallax-hero {
+        height: 200px;
+    }
+    
+    .topnav a {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+
+    .profile-button {
+        width: 200px;
+        height: 200px;
+    }
+
+    .categories-section {
+        max-width: 300px; /* Reduce el ancho máximo para móviles */
+    }
+
+    .category-slide {
+        height: 120px; /* Reduce la altura de los rectángulos en móviles */
+    }
+
+    .category-label {
+        font-size: 0.9em;
+        padding: 4px 8px;
+    }
+}

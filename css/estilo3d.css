@@ -1,0 +1,186 @@
+/* variables.css (si tienes este archivo, los colores ya estarán definidos ahí. Si no, puedes pegarlos aquí) */
+:root {
+    --primary-color: #1e90ff;
+    --secondary-color: #ff6347;
+    --background-color: #f9f9f9;
+    --text-color: #333333;
+    --celeste-box: #ADD8E6; /* Celeste claro */
+    --salmon-box: #FA8072;  /* Salmón */
+    --button-color-gray: #888888; /* Nuevo color gris para los botones inferiores */
+    --button-hover-gray: #666666; /* Gris más oscuro para el hover */
+}
+
+/* --- Estilos Generales y del Body --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; /* Elimina el margen predeterminado del body */
+    padding: 0;
+    background-color: var(--background-color); /* Usamos la variable para el color de fondo */
+    color: var(--text-color); /* Usamos la variable para el color de texto */
+    /* Para el fondo de imagen, si lo quieres: */
+    /* background-image: url('../img/backg.jpg'); */
+    /* background-size: cover; */
+    /* background-attachment: fixed; */
+}
+
+/* --- Estilos del Header --- */
+header {
+    background-color: #333; /* Un fondo oscuro para el header */
+    padding: 10px 20px;
+    text-align: center; /* Centra el logo si es un elemento de bloque */
+}
+
+.logo img {
+    height: 50px; /* Ajusta el tamaño del logo según necesites */
+}
+
+/* --- Estilos de la Barra de Navegación (topnav) --- */
+.topnav {
+    background-color: #555;
+    overflow: hidden;
+    text-align: center; /* Centra los enlaces de navegación */
+    padding: 10px 0;
+}
+
+.topnav a {
+    float: none; /* Deshabilita el flotado si lo tenías */
+    display: inline-block; /* Los hace bloques en línea para centrar con text-align */
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* --- Estilos del Contenedor Principal (main) --- */
+.content-container {
+    display: flex; /* Usa Flexbox para alinear los elementos uno al lado del otro */
+    justify-content: center; /* Centra el contenido horizontalmente en el contenedor */
+    align-items: flex-start; /* Alinea los elementos al inicio (arriba) si tienen diferente altura */
+    padding: 20px; /* Espacio interno general para que el contenido no pegue a los bordes */
+    gap: 40px; /* <--- Distancia entre el reproductor y el texto. */
+    margin-top: 30px; /* <--- Distancia entre el nav y el contenedor principal. */
+}
+
+/* --- Estilos de la Sección de Texto (izquierda) --- */
+.text-section {
+    flex: 1; /* Permite que esta sección ocupe el espacio disponible */
+    max-width: 500px; /* Limita el ancho máximo para que no se extienda demasiado */
+    display: flex;
+    flex-direction: column; /* Apila el título y la descripción verticalmente */
+    align-items: center; /* Centra el contenido (título y descripción) dentro de esta sección */
+    padding: 20px; /* Espacio interno */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+}
+
+.title-box {
+    background-color: var(--celeste-box); /* Color celeste para el título */
+    padding: 10px 20px;
+    margin-bottom: 15px; /* <--- Distancia entre el título y la descripción */
+    border-radius: 5px;
+    text-align: center; /* Centra el texto del título dentro de su caja */
+    width: 100%; /* Ocupa todo el ancho disponible en text-section */
+    max-width: 300px; /* Limita el ancho del título para que no sea enorme */
+}
+
+.title-box h2 {
+    margin: 0; /* Elimina el margen predeterminado del h2 */
+    color: var(--text-color);
+}
+
+.description-box {
+    background-color: var(--salmon-box); /* Color salmón para la descripción */
+    padding: 20px;
+    border-radius: 5px;
+    line-height: 1.6; /* Mejora la legibilidad del texto */
+    text-align: justify; /* Justifica el texto para una apariencia más limpia */
+    width: 100%; /* Ocupa todo el ancho disponible en text-section */
+    max-width: 450px; /* Limita el ancho de la descripción */
+}
+
+/* --- Estilos de la Sección de Video (derecha) --- */
+.video-section {
+    flex-shrink: 0; /* Evita que el video se encoja si no hay suficiente espacio */
+    padding: 10px; /* Espacio alrededor del video */
+}
+
+.video-section video {
+    display: block; /* Elimina posibles espacios debajo del video */
+    max-width: 100%; /* Asegura que el video no se desborde del contenedor si es responsivo */
+    height: auto; /* Mantiene la proporción del video */
+    border-radius: 8px; /* Bordes ligeramente redondeados para el reproductor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* --- Estilos de los Botones Inferiores --- */
+.button-container {
+    text-align: center; /* Centra los botones horizontalmente */
+    margin-top: 50px; /* <--- Distancia del contenedor de botones respecto al contenido de arriba (video/texto) */
+    padding: 20px 0; /* Espacio interno superior e inferior */
+}
+
+.button-container a {
+    display: inline-block; /* Permite que los botones estén en línea pero tengan padding y margen */
+    background-color: var(--button-color-gray); /* Color gris para los botones */
+    color: white;
+    padding: 12px 25px; /* Padding interno de los botones */
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Transición suave para el hover */
+    margin: 0 10px; /* <--- Distancia entre los botones (10px a la izquierda y 10px a la derecha de cada uno) */
+                     /* Puedes cambiar '10px' para ajustar el espacio entre ellos */
+}
+
+.button-container a:hover {
+    background-color: var(--button-hover-gray); /* Cambia a un gris más oscuro al pasar el ratón */
+}
+
+
+/* --- Media Queries para responsividad --- */
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column; /* Apila los elementos verticalmente en pantallas pequeñas */
+        align-items: center; /* Centra los elementos apilados */
+        gap: 20px; /* Reduce el espacio entre elementos apilados */
+    }
+
+    .text-section,
+    .video-section {
+        max-width: 90%; /* Ajusta el ancho para pantallas pequeñas */
+    }
+
+    .title-box,
+    .description-box {
+        max-width: 90%; /* Ajusta el ancho de los cuadros de texto */
+    }
+
+    .button-container {
+        margin-top: 30px; /* Ajusta la distancia en pantallas pequeñas */
+    }
+
+    .button-container a {
+        display: block; /* Hace que los botones se apilen verticalmente */
+        margin: 10px auto; /* Centra los botones apilados y les da margen vertical */
+        width: 80%; /* Ancho de los botones apilados */
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .topnav a {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+}
