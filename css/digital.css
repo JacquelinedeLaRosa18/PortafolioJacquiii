@@ -1,0 +1,285 @@
+/* --- Variables de Color (Puedes tomar estas de tu archivo estilo.css general si ya las tienes) --- */
+:root {
+    --primary-color: #0a4268; /* Azul oscuro (del active del nav) */
+    --secondary-color: #ddd; /* Gris claro para hover del nav */
+    --background-general: #f9f9f9; /* Un fondo general si se usa */
+    --text-color: #333333; /* Color de texto general */
+    --nav-bg: #555; /* Fondo del nav, ajustado si quieres el mismo color que en index */
+    --trad-body-bg-start: #FFCAD4; /* Color de inicio para el degradado del body */
+    --trad-body-bg-end: #ed8696;   /* Color final para el degradado del body */
+    --image-overlay-bg: rgba(166, 199, 236, 0.781); /* Fondo del overlay de imagen */
+    --image-overlay-text-color: rgb(197, 226, 128); /* Color del texto en el overlay */
+}
+/*
+@font-face{
+    font-family: Cherry;
+    src: url(../fonts/Cherry);
+}
+
+/* --- Fuentes --- */
+@font-face{
+    font-family: vint;
+    src: url(../fonts/metro-retro.regular.ttf);
+}
+@font-face{
+    font-family: bc;
+    src: url(../fonts/BarlowCondensed-Bold.ttf);
+}
+@font-face{
+    font-family: bct;
+    src: url(../fonts/Josefine.otf);
+}
+
+/* --- Reseteo Básico --- */
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- Estilos Generales del Body --- */
+body{
+    font-family: bc;
+    margin: 0; /* Aseguramos que no haya márgenes por defecto */
+    padding: 0;
+    background: linear-gradient(to right, var(--trad-body-bg-start), var(--trad-body-bg-end)); /* Degradado del cuerpo */
+    color: var(--text-color); /* Color de texto general */
+}
+
+/* --- Header y Logo (Consistente con animacion3d.html) --- */
+header {
+    background-color: #333; /* Fondo oscuro para el header */
+    padding: 10px 20px;
+    text-align: center; /* Centra el logo */
+    position: relative; /* Ajustado para que no se superponga con el topnav */
+    z-index: 10; /* Asegura que esté encima de otros elementos si hay conflicto */
+    height: auto; /* Ajusta la altura automáticamente según el contenido */
+    width: 100%; /* Ocupa todo el ancho */
+    margin: 0; /* Elimina márgenes extra */
+}
+
+.logo {
+    display: inline-block; /* Para que la imagen se centre dentro del header */
+    /* La regla 'float: right;' en .logo img es la que realmente la mueve a la derecha si no quieres text-align: center */
+}
+
+.logo img {
+    height: 50px; /* Ajusta el tamaño del logo */
+    float: right; /* Mueve el logo a la derecha dentro del header */
+    margin-right: 20px; /* Espacio a la derecha del logo */
+}
+
+/* --- Navegación (topnav) - (Consistente con animacion3d.html) --- */
+.topnav {
+    background-color: var(--nav-bg); /* Color de fondo del nav */
+    overflow: hidden;
+    text-align: center; /* Centra los enlaces de navegación */
+    padding: 10px 0;
+    width: 100%; /* Ocupa todo el ancho */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra sutil */
+}
+
+.topnav a {
+    float: none; /* Deshabilita el flotado si lo tenías, usamos inline-block para centrar */
+    display: inline-block; /* Los hace bloques en línea para centrar con text-align */
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+.topnav a:hover {
+    background-color: var(--secondary-color); /* Gris claro al pasar el ratón */
+    color: black;
+}
+
+.topnav a.active {
+    background-color: var(--primary-color); /* Azul oscuro para el activo */
+    color: white;
+}
+
+/* --- Contenedor Principal de Imágenes (Gallery Grid) --- */
+.contenedor-imagenes {
+    display: grid; /* Usamos CSS Grid para un control más robusto de columnas y filas */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Auto-ajustable con min 300px */
+    /* NOTA DE TAMAÑO: minmax(300px, 1fr) indica que cada columna tendrá al menos 300px de ancho, y se expandirá equitativamente.
+       Si tus imágenes se ven incompletas, es porque el 'height' de .imagen no es suficiente o el 'object-fit: cover' las corta.
+       Podrías ajustar el `height` de .imagen o el `minmax` aquí. */
+    gap: 30px; /* <--- ESPACIO ENTRE CONTENEDORES (ajusta este valor) */
+    width: 90%; /* Ancho general del grid de imágenes */
+    max-width: 1200px; /* Límite de ancho para que no sea demasiado grande en pantallas amplias */
+    margin: 40px auto; /* <--- ESPACIO ARRIBA Y ABAJO DEL GRID, y centrado horizontalmente */
+    padding: 20px; /* Espacio interno para que las imágenes no peguen a los bordes del grid */
+    border-radius: 8px; /* Bordes ligeramente redondeados para el contenedor principal */
+    background-color: rgba(255, 255, 255, 0.8); /* Un fondo ligero para el contenedor si lo necesitas */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombra sutil para el contenedor principal */
+}
+
+.contenedor-imagenes .imagen {
+    position: relative;
+    /* Ajuste de altura inicial. PRUEBA CON ESTE VALOR. */
+    height: 300px; /* NOTA DE TAMAÑO: Ajusta este valor. 250px es tu valor anterior. Prueba 300px, 350px, etc. */
+    overflow: hidden; /* Asegura que la imagen no se desborde del contenedor */
+    border-radius: 8px; /* Bordes redondeados para cada imagen individual */
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1); /* Sombra sutil para cada imagen */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para hover */
+    /* Removido el 'width: 32%;' ya que Grid lo maneja con '1fr' */
+    /* Removido 'margin-bottom' ya que 'gap' lo maneja */
+}
+
+.contenedor-imagenes .imagen:hover {
+    transform: translateY(-5px); /* Pequeño levantamiento al pasar el ratón */
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2); /* Sombra más pronunciada al pasar el ratón */
+}
+
+.imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto es clave: "cubre" el área sin distorsionar, cortando si es necesario */
+                       /* Si tus imágenes se ven incompletas y quieres verlas enteras (pero quizás con barras blancas),
+                          cambia 'object-fit: cover;' a 'object-fit: contain;'. Sin embargo, 'cover' es estéticamente mejor para galerías.
+                          La mejor solución es ajustar el 'height' del .imagen contenedor. */
+    display: block; /* Elimina espacio extra debajo de la imagen */
+}
+
+/* --- Overlay al pasar el ratón --- */
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: var(--image-overlay-bg); /* Color de fondo del overlay */
+    width: 100%;
+    height: 0; /* Altura inicial cero, se expande al hacer hover */
+    overflow: hidden;
+    transition: .5s ease;
+    display: flex; /* Usamos flexbox para centrar contenido dentro del overlay */
+    flex-direction: column; /* Apilamos el título y el precio */
+    justify-content: center; /* Centrado vertical */
+    align-items: center; /* Centrado horizontal */
+    text-align: center; /* Centra el texto */
+    padding: 10px; /* Padding para el texto */
+    box-sizing: border-box; /* Incluye padding en el cálculo de altura */
+}
+
+.overlay h2 {
+    color: var(--image-overlay-text-color); /* Color del título */
+    font-weight: 700; /* Negrita */
+    font-size: 24px; /* Tamaño del título */
+    margin-bottom: 5px; /* Espacio entre título y precio */
+    /* Posicionamiento absoluto y transform ya no son necesarios con flexbox */
+}
+
+.overlay p {
+    color: white; /* Color del precio */
+    font-size: 18px; /* Tamaño del precio */
+    margin-left: 0; /* Elimina el margen izquierdo que tenías para 'p' general */
+}
+
+.imagen:hover .overlay {
+    height: 100%; /* El overlay se expande a la altura completa al pasar el ratón */
+    cursor: pointer;
+}
+
+/* --- Media Queries --- */
+@media screen and (max-width:1000px){
+    .contenedor-imagenes{
+        width: 95%;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Reducimos el minwidth de las columnas */
+        gap: 20px; /* Reducimos el espacio */
+    }
+    .contenedor-imagenes .imagen {
+        height: 250px; /* Ajusta la altura si es necesario */
+    }
+}
+
+@media screen and (max-width:700px) { /* Corrección: faltaba un espacio en `screen and(max-width:700px)` */
+    .contenedor-imagenes{
+        width: 90%;
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+        gap: 15px;
+    }
+    .contenedor-imagenes .imagen{
+        width: 100%; /* Ocupa todo el ancho */
+        height: 280px; /* Ajusta la altura para móviles */
+    }
+    .overlay h2 {
+        font-size: 20px;
+    }
+    .overlay p {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width:450px){
+    h1{
+        font-size: 22px;
+    }
+    .contenedor-imagenes{
+        width: 98%;
+        padding: 10px;
+    }
+    .contenedor-imagenes .imagen{
+        height: 220px; /* Altura para pantallas muy pequeñas */
+    }
+}
+
+/* --- Otros Estilos que no se usan o necesitan ser revisados --- */
+/* Estas reglas no aparecen en tu HTML o están mal aplicadas al contexto de una página de galería. */
+/* Si "galeria h1" es para un título en esta página, deberías añadir un <h1> en el HTML. */
+/* Si "linea" es para un separador, también debería estar en el HTML. */
+.galeria { /* Esto probablemente sobra si no hay un elemento con clase 'galeria' */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.galeria h1 { /* No hay h1 con esta clase en tu HTML actual */
+    text-align: center;
+    margin: 20px 0 15px 0;
+    font-weight: 300;
+}
+.linea { /* No hay elemento con clase 'linea' en tu HTML actual */
+    border-top: 5px solid #68a4ca;
+    margin-bottom: 40px;
+}
+/* El header original estaba 'fixed' y con un ancho y margen que no funcionan para el logo */
+/* Se ha simplificado para que el logo esté dentro de un header convencional */
+header {
+    /* Las propiedades 'position: fixed', 'top: 0', 'width: 8%', 'height: 10%', 'margin-left: 90%', 'margin-top: 8px;'
+       hacían que el header fuera una pequeña caja en la esquina superior derecha.
+       Las he modificado para que el header sea una barra superior normal con el logo a la derecha. */
+}
+.portada { /* No hay elemento con clase 'portada' en tu HTML actual */
+    width: 80%;
+}
+.unidad { /* No hay elemento con clase 'unidad' en tu HTML actual */
+    font-family: vint;
+    font-size: 2em;
+    text-align: center;
+}
+/* Las secciones 'section', 'cont', 'p' y 'fieldset' no parecen ser parte de la galería principal.
+   Si son de otro contenido, asegúrate de que no interfieran con la galería.
+   `fieldset` con `float: left` y `margin-top: 10%` puede causar problemas de layout.
+   Las he dejado como están, pero ten cuidado si ves efectos no deseados. */
+section {
+    width: 80%;
+    height: auto;
+    margin-left: 15%;
+}
+.cont {
+    margin: 10px;
+}
+p {
+    margin-left: 3%; /* Esta regla afectará a *todos* los párrafos, incluyendo los precios en el overlay */
+                     /* Considera hacer esta regla más específica si solo quieres que aplique a párrafos fuera del overlay */
+}
+fieldset {
+    width: 90%;
+    height: auto;
+    background-color: #f3d9d9;
+    float: left;
+    margin-left:8px;
+    margin-top: 10%; 
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 13px 13px 13px rgba(163, 155, 155, 0.829);
+}

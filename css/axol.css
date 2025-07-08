@@ -1,0 +1,199 @@
+/* --- Variables de Color (Puedes ajustar si es diferente al estilo.css general) --- */
+:root {
+    --primary-color: #1e90ff;
+    --secondary-color: #ff6347;
+    --background-color: #f9f9f9; 
+    --text-color: #333333;
+    --box-border-color: #333; /* Color de borde para los cuadros de texto */
+    --box-text-color: #333; /* Color de texto para los cuadros */
+}
+
+/* --- Estilos Generales y del Body --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* --- Estilos del Paralaje (Imagen de arriba) --- */
+.parallax-hero {
+    /* Ajusta la ruta si es necesario, relativo a la ubicación del CSS */
+    background-image: url('../img/portfolio.gif'); 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px; /* Un poco más bajo para la página de biografía */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* --- Estilos del Header --- */
+header {
+    background-color: #333;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.logo img {
+    height: 50px;
+}
+
+/* --- Estilos de la Barra de Navegación (topnav) --- */
+.topnav {
+    background-color: #555;
+    overflow: hidden;
+    text-align: center;
+    padding: 10px 0;
+    position: sticky; /* Se mantiene en la parte superior al hacer scroll */
+    top: 0;
+    z-index: 100;
+}
+
+.topnav a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* --- Contenedor Principal de la Biografía (main) --- */
+.bio-content-container {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: flex-start; /* Alinea los elementos al inicio (arriba) */
+    max-width: 960px; /* Ancho máximo para el contenido de la biografía */
+    margin: 50px auto; /* Centra y da espacio arriba y abajo */
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    gap: 40px; /* Espacio entre la foto de perfil y los detalles */
+}
+
+/* --- Sección de la Imagen de Perfil (izquierda) --- */
+.bio-profile-section {
+    flex-shrink: 0; /* No permite que la sección se encoja */
+    width: 280px; /* Ancho fijo para la imagen de perfil */
+    height: 280px; /* Alto fijo para hacerla cuadrada */
+    overflow: hidden;
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.bio-profile-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* La imagen cubre el área sin distorsionarse */
+    display: block;
+}
+
+/* --- Sección de Detalles de Biografía (derecha) --- */
+.bio-details-section {
+    flex-grow: 1; /* Permite que ocupe el espacio restante */
+    display: flex;
+    flex-direction: column; /* Apila el nombre y la descripción verticalmente */
+    gap: 20px; /* Espacio entre el cuadro de nombre y el de descripción */
+}
+
+.bio-name-box, .bio-description-box {
+    border: 1px solid var(--box-border-color); /* Borde para los cuadros */
+    padding: 25px;
+    background-color: #f8f8f8; /* Un fondo ligeramente diferente para los cuadros */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bio-name-box {
+    text-align: center;
+}
+
+.bio-name-box h2 {
+    margin: 0;
+    font-size: 2.2em;
+    color: var(--primary-color);
+}
+
+.bio-description-box p {
+    margin-top: 0;
+    margin-bottom: 1em; /* Espacio entre párrafos */
+    line-height: 1.6;
+    color: var(--box-text-color);
+    font-size: 1.1em;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    background-color: #333;
+    color: white;
+    font-size: 0.9em;
+}
+
+
+/* --- Media Queries para responsividad --- */
+@media (max-width: 768px) {
+    .bio-content-container {
+        flex-direction: column; /* Apila la foto y los detalles verticalmente */
+        align-items: center; /* Centra los elementos apilados */
+        gap: 30px;
+        padding: 20px;
+        margin: 30px auto;
+    }
+
+    .bio-profile-section {
+        width: 200px; /* Reduce el tamaño de la foto en móviles */
+        height: 200px;
+    }
+
+    .bio-details-section {
+        width: 100%; /* Ocupa el 100% del ancho disponible */
+        padding: 0 10px; /* Pequeño padding a los lados */
+    }
+
+    .bio-name-box h2 {
+        font-size: 1.8em;
+    }
+
+    .bio-description-box p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .topnav a {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    .parallax-hero {
+        height: 150px;
+    }
+
+    .bio-name-box h2 {
+        font-size: 1.5em;
+    }
+
+    .bio-description-box p {
+        font-size: 0.9em;
+    }
+}
