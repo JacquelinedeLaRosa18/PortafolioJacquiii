@@ -11,7 +11,7 @@
     --image-overlay-text-color: rgb(197, 226, 128); 
     --overlay-details-color: white; 
 
-    /* Nuevas variables para botones de edición */
+    /* Variables para botones de edición */
     --edit-btn-bg: #4CAF50; /* Verde */
     --edit-btn-hover: #45a049;
     --delete-btn-bg: #f44336; /* Rojo */
@@ -19,12 +19,18 @@
     --toggle-btn-bg: #FFD700; /* Amarillo burbuja */
     --toggle-btn-text: #333;
     --toggle-btn-hover: #e0c200;
+
+    /* Variables para el mensaje de deshacer */
+    --undo-bg-color: #333; /* Fondo oscuro para el mensaje de deshacer */
+    --undo-text-color: white;
+    --undo-button-bg: #4CAF50; /* Verde para el botón Deshacer */
+    --undo-button-hover: #45a049;
 }
 
 /* --- Fuentes --- */
 @font-face{
     font-family: Cherry;
-    src: url(../fonts/Cherry.ttf); /* Asumiendo .ttf */
+    src: url(../fonts/Cherry.ttf);
 }
 @font-face{
     font-family: vint;
@@ -53,9 +59,8 @@ body{
     padding: 0;
     background: linear-gradient(to right, var(--trad-body-bg-start), var(--trad-body-bg-end)); 
     color: var(--text-color); 
-    /* Necesario para posicionar el botón flotante */
     position: relative; 
-    min-height: 100vh; /* Asegura que el body tenga al menos la altura de la ventana */
+    min-height: 100vh; 
 }
 
 /* --- Header y Logo --- */
@@ -206,15 +211,13 @@ header {
 
 /* Contenedor de botones de edición dentro del overlay */
 .edit-buttons {
-    display: flex; /* Para que los botones estén uno al lado del otro */
-    gap: 10px; /* Espacio entre los botones */
-    margin-top: 20px; /* Espacio entre el precio y los botones */
-    /* Por defecto, oculto */
+    display: flex; 
+    gap: 10px; 
+    margin-top: 20px; 
     opacity: 0; 
-    visibility: hidden; /* Esto es clave para ocultarlos */
+    visibility: hidden; 
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-
 
 /* Estilos de los botones individuales */
 .edit-buttons button {
@@ -222,7 +225,7 @@ header {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-family: bc; /* Usando tu fuente */
+    font-family: bc; 
     font-size: 16px;
     color: white;
     transition: background-color 0.2s ease;
@@ -247,59 +250,101 @@ header {
 /* Mostrar los botones de edición solo cuando .editing-mode-active esté en el body */
 body.editing-mode-active .edit-buttons {
     opacity: 1;
-    visibility: visible; /* Esto es clave para mostrarlos */
+    visibility: visible; 
 }
 
 /* Si el modo edición está activo, siempre mostrar el overlay para poder acceder a los botones */
 body.editing-mode-active .imagen .overlay {
-    opacity: 1; /* Esto anula el efecto de hover para que el overlay siempre esté visible en modo edición */
-    cursor: default; /* El cursor normal en modo edición */
-    /* Puedes ajustar el background-color si quieres que el overlay sea más sutil en modo edición */
-    /* background: rgba(166, 199, 236, 0.9); */ 
+    opacity: 1; 
+    cursor: default; 
 }
-
-
 
 /* Opcional: Deshabilitar el efecto de agrandar al pasar el cursor en modo edición */
-body.editing-mode-active .grid-item:hover {
+/* body.editing-mode-active .grid-item:hover {
     transform: none;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1); /* Vuelve a la sombra normal */
-}
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1); 
+} */
 
 
 /* --- Botón flotante de "Modo Edición" --- */
 .edit-mode-toggle-btn {
-    position: fixed; /* Mantiene el botón en la misma posición al hacer scroll */
-    bottom: 30px; /* Distancia desde abajo */
-    right: 30px; /* Distancia desde la derecha */
-    background-color: var(--toggle-btn-bg); /* Color de la burbuja */
+    position: fixed; 
+    bottom: 30px; 
+    right: 30px; 
+    background-color: var(--toggle-btn-bg); 
     color: var(--toggle-btn-text); 
     border: none;
-    border-radius: 50%; /* Para que sea circular */
-    width: 60px; /* Ancho del círculo */
-    height: 60px; /* Alto del círculo */
-    font-size: 14px; /* Tamaño del texto "Modo Edición" */
+    border-radius: 50%; 
+    width: 60px; 
+    height: 60px; 
+    font-size: 14px; 
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.25); /* Sombra para que destaque */
-    z-index: 100; /* Asegura que esté por encima de todo */
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.25); 
+    z-index: 100; 
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .edit-mode-toggle-btn:hover {
     background-color: var(--toggle-btn-hover);
-    transform: scale(1.05); /* Pequeño efecto al pasar el ratón */
+    transform: scale(1.05); 
     box-shadow: 0px 6px 12px rgba(0,0,0,0.3);
 }
 
 /* Estilo para cuando el botón está "activo" (modo edición) */
 body.editing-mode-active .edit-mode-toggle-btn {
-    background-color: var(--primary-color); /* Cambia el color para indicar que está activo */
+    background-color: var(--primary-color); 
     color: white;
 }
 
+
+/* --- Mensaje de Deshacer (Undo Message) --- */
+#undo-message-container {
+    position: fixed; 
+    bottom: 90px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    background-color: var(--undo-bg-color);
+    color: var(--undo-text-color);
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 101; 
+    opacity: 0; 
+    visibility: hidden; 
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#undo-message-container.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#undo-message-text {
+    margin: 0;
+    font-size: 16px;
+}
+
+#undo-button {
+    background-color: var(--undo-button-bg);
+    color: var(--undo-text-color);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: bc;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+#undo-button:hover {
+    background-color: var(--undo-button-hover);
+}
 
 /* --- Media Queries --- */
 @media screen and (max-width:1000px){
@@ -320,6 +365,10 @@ body.editing-mode-active .edit-mode-toggle-btn {
         font-size: 12px;
         bottom: 20px;
         right: 20px;
+    }
+    /* Media Query para el mensaje de deshacer */
+    #undo-message-container {
+        bottom: 80px; 
     }
 }
 
@@ -348,6 +397,22 @@ body.editing-mode-active .edit-mode-toggle-btn {
         font-size: 10px;
         bottom: 15px;
         right: 15px;
+    }
+    /* Media Query para el mensaje de deshacer (móviles) */
+    #undo-message-container {
+        bottom: 70px;
+        padding: 10px 15px;
+        font-size: 14px;
+        gap: 10px;
+        width: 90%; 
+        box-sizing: border-box; 
+    }
+    #undo-message-text {
+        font-size: 14px;
+    }
+    #undo-button {
+        padding: 6px 12px;
+        font-size: 12px;
     }
 }
 

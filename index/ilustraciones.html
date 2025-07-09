@@ -2,78 +2,99 @@
 <html lang="es">
 
 <head>
-    <title>Portafolio</title>
+    <title>Ilustraciones - Portafolio</title> 
     <meta charset="utf-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">  </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
     <script src="codemirror/codemirror/lib/codemirror.js"></script>
     <link rel="stylesheet" href="codemirror/codemirror/lib/codemirror.css" />
     <link rel="stylesheet" href="codemirror/codemirror/theme/default.css">
     <script src="codemirror/codemirror/mode/javascript/javascript.js"></script>
     <script src="codemirror/codemirror/mode/css/css.js"></script>
-    <script src="codemirror/codemirror/mode/htmlmixed/htmlmixed.js"></script>
-    <script src="codemirror/codemirror/addon/hint/show-hint.js"> </script>
+    <script src="codemirror/codemirror/addon/hint/show-hint.js"></script>
     <script src="codemirror/codemirror/addon/hint/css-hint.js"></script>
     <link rel="stylesheet" href="codemirror/codemirror/addon/hint/show-hint.css">
-    <link rel="stylesheet" href="../css/digital.css" href="/img/backg.jpg">
+
+    <link rel="stylesheet" href="../css/trad.css"> 
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
     <header>
-        <a class="nada"></a>  //proximo a quitar
-
+        <a class="nada"></a> 
         <div class="logo">
-            <img src="../img/logo axolot.png"> 
+            <img src="../img/logo axolot.png" alt="Logo Axolot"> 
         </div>
-        
     </header>
 
     <div class="topnav">
-        <a class="active" href="index.html">INICIO</a>
-        <a class="active" href="animacion3d.html">ANIMACION 3D</a>
-        <a class="active" href="animacion2D1.html">ANIMACION 2D</a>
+        <a href="index.html">INICIO</a>
+        <a href="animacion3d.html">ANIMACION 3D</a>
+        <a href="animacion2D1.html">ANIMACION 2D</a>
         <a class="active" href="ilustraciones.html">ILUSTRACION</a>
-        <a class="active" href="dibujos.html">TRADICIONAL</a>
-
+        <a href="dibujos.html">TRADICIONAL</a>
     </div>
 
-    
-    <div class="contenedor-imagenes">
-        <div class="imagen">
-            <img src="../img/ilustracion/escena final frame.jpg" alt="">
-            <div class="overlay">
-                <h2>Deadpool</h2>
-                <p>$4.23 Dlls</p>
+    <h1 class="gallery-title">Galería de Ilustraciones</h1>
+    <hr class="gallery-separator">
 
+    <div class="contenedor-imagenes" id="gallery-container-ilustraciones">
+        <div class="imagen">
+            <img src="../img/ilustracion/escena final frame.jpg" alt="Ilustración Escena Final Frame">
+            <div class="overlay">
+                <h2>Escena Final Frame</h2>
+                <p>$4.23 Dlls</p>
+                <div class="edit-buttons">
+                    <button class="edit-btn">Editar</button>
+                    <button class="delete-btn">Borrar</button>
+                </div>
             </div>
         </div>
         <div class="imagen">
-            <img src="../img/ilustracion/ilustracion Japones.jpg" alt="">
+            <img src="../img/ilustracion/ilustracion Japones.jpg" alt="Ilustración Japonesa">
             <div class="overlay">
-                <h2>Sonic</h2>
+                <h2>Ilustración Japonesa</h2>
                 <p>$4.23 Dlls</p>
-
+                <div class="edit-buttons">
+                    <button class="edit-btn">Editar</button>
+                    <button class="delete-btn">Borrar</button>
+                </div>
             </div>
         </div>
         <div class="imagen">
-            <img src="../img/ilustracion/poster tmnt.jpg" alt="">
+            <img src="../img/ilustracion/poster tmnt.jpg" alt="Póster TMNT">
             <div class="overlay">
-                <h2>Sonic vs Knuckles</h2>
+                <h2>Póster TMNT</h2>
                 <p>$4.23 Dlls</p>
-
+                <div class="edit-buttons">
+                    <button class="edit-btn">Editar</button>
+                    <button class="delete-btn">Borrar</button>
+                </div>
             </div>
         </div>
         <div class="imagen">
-            <img src="../img/ilustracion/camisa v.7.png" alt="">
+            <img src="../img/ilustracion/camisa v.7.png" alt="Diseño de Camisa v.7">
             <div class="overlay">
-                <h2>Arcane</h2>
+                <h2>Diseño de Camisa v.7</h2>
                 <p>$4.23 Dlls</p>
-
+                <div class="edit-buttons">
+                    <button class="edit-btn">Editar</button>
+                    <button class="delete-btn">Borrar</button>
+                </div>
             </div>
         </div>
-
     </div>
-</body>
 
+    <div id="undo-message-container">
+        <p id="undo-message-text"></p>
+        <button id="undo-button">Deshacer</button>
+    </div>
+
+    <button class="edit-mode-toggle-btn" id="editModeToggle">
+        Modo Edición
+    </button>
+
+    <script src="../java/dibujos_edit.js"></script> 
 </body>
+</html>
