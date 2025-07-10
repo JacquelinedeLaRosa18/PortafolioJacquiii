@@ -1,0 +1,256 @@
+/* --- Variables de color globales (Duplicado aquí para que contacto.css sea independiente) --- */
+/* IDEALMENTE estas variables solo deberían estar en trad.css y contacto.css las importaría,
+   pero para asegurar que funcione YA, las incluimos aquí. */
+:root {
+    --primary-color: #0A4268; /* Azul Oscuro */
+    --secondary-color: #D62828; /* Rojo */
+    --text-color: #333; /* Gris Oscuro para texto general */
+    --background-color: #f4f4f4; /* Fondo claro */
+    --border-color: #ddd; /* Color para bordes de elementos */
+    --link-color: #0A4268; /* Color de enlaces */
+    --hover-color: #083350; /* Color al pasar el ratón */
+    --image-overlay-text-color: #FFFFFF; /* Texto blanco para overlays de imagen */
+    --image-overlay-bg: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente para overlays */
+    --light-gray: #f2f2f2; /* Gris muy claro */
+}
+
+/* --- Estilos para la Página de Contacto con Parallax --- */
+
+body {
+    margin: 0; /* Asegura que no haya márgenes por defecto del body */
+    font-family: Arial, sans-serif; /* Fuente de respaldo */
+    line-height: 1.6;
+    color: var(--text-color); /* Aplica el color de texto general */
+}
+
+/* Estilos para el encabezado y la navegación (copiados de trad.css para consistencia) */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Asegura que el header no interfiera con el parallax */
+    z-index: 10; /* Para que esté por encima de todo */
+}
+
+.logo img {
+    height: 50px; /* Ajusta el tamaño de tu logo */
+}
+
+.topnav {
+    background-color: #555;
+    overflow: hidden;
+    position: sticky; /* Sticky nav */
+    top: 0;
+    width: 100%;
+    z-index: 10; /* Para que esté por encima del parallax al hacer scroll */
+    text-align: center; /* Centra los enlaces */
+}
+
+.topnav a {
+    float: none; /* Quitamos el float para centrar con flexbox o text-align */
+    display: inline-block; /* Para que text-align: center funcione */
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-family: 'bc'; /* Usa tu fuente */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+
+/* Contenedor principal para el Parallax */
+.parallax-container {
+    position: relative;
+    height: 100vh; /* O la altura que desees para que el parallax sea visible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* Oculta cualquier desbordamiento de contenido */
+    /* El flex-direction: column lo quitamos de aquí para centrar el formulario */
+}
+
+/* Fondo del Parallax */
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/portfolio.gif'); /* ¡Esta es la ruta crucial! */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Esto es clave para el efecto parallax */
+    filter: brightness(0.5); /* **Ajustado a 0.5** para que el GIF sea un poco más oscuro y el texto blanco resalte */
+    z-index: -1; /* Envía el fondo detrás del contenido */
+}
+
+/* Contenido del formulario sobre el fondo Parallax */
+.form-content {
+    position: relative;
+    z-index: 1; /* Pone el contenido por encima del fondo parallax */
+    color: white; /* Color de texto legible sobre el fondo oscuro */
+    padding: 20px;
+    width: 100%;
+    max-width: 800px; /* Ancho máximo para el contenido */
+    box-sizing: border-box; /* Incluye padding en el ancho */
+    display: flex; /* Para centrar el h1 y la hr dentro de form-content */
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente los elementos */
+}
+
+.form-title {
+    font-family: vint; 
+    font-size: 3.5em; 
+    margin-bottom: 20px; 
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    color: var(--image-overlay-text-color); /* Debería ser blanco */
+}
+
+.form-separator {
+    width: 60%;
+    max-width: 400px;
+    margin: 0 auto 40px auto; 
+    border: none;
+    border-top: 3px solid var(--secondary-color); 
+    opacity: 0.8;
+}
+
+/* Contenedor del formulario centrado y estilizado */
+.contact-form-wrapper {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente para el formulario */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    text-align: left; /* Alinea el texto dentro del formulario a la izquierda */
+    color: var(--text-color); /* Restablece el color del texto para el formulario a gris oscuro */
+    max-width: 600px; /* Ancho máximo del formulario */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible hasta el max-width */
+    margin-top: 20px; /* Espacio entre el separador y el formulario */
+    box-sizing: border-box; /* Incluye padding en el ancho */
+}
+
+/* Estilos para cada grupo de formulario (label + input/textarea) */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block; /* Cada label en su propia línea */
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: var(--primary-color); /* Color para las etiquetas */
+    font-family: 'bc'; /* Usa tu fuente para las etiquetas también */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: 'bc'; /* Usa tu fuente */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color); /* Resalta el borde al enfocar */
+    box-shadow: 0 0 8px rgba(10, 66, 104, 0.2); /* Sombra suave al enfocar */
+    outline: none; /* Quita el contorno por defecto del navegador */
+}
+
+.form-group textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+/* Estilo del botón de envío */
+.submit-btn {
+    display: block; /* Ocupa todo el ancho disponible */
+    width: 100%;
+    padding: 15px 25px;
+    background-color: var(--primary-color); /* Usa tu color primario */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-family: 'bc';
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: #083350; /* Un tono más oscuro del primary color */
+    transform: translateY(-2px); /* Efecto de "levantar" */
+}
+
+/* Media Queries para la página de Contacto */
+@media screen and (max-width: 768px) {
+    .form-title {
+        font-size: 2.8em;
+    }
+    .contact-form-wrapper {
+        padding: 20px;
+        margin: 0 15px; /* Margen a los lados en pantallas pequeñas */
+    }
+    .form-group label,
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.95em;
+    }
+    .submit-btn {
+        padding: 12px 20px;
+        font-size: 1.1em;
+    }
+    /* Ajuste para que el parallax no se estire demasiado si el contenido es corto */
+    .parallax-container {
+        height: auto;
+        min-height: 100vh; /* Asegura que ocupe al menos toda la vista */
+        padding-top: 80px; /* Para dar espacio al nav */
+        padding-bottom: 50px; /* Para dar espacio al final del contenido */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .form-title {
+        font-size: 2.2em;
+    }
+    .form-separator {
+        width: 70%;
+    }
+    .contact-form-wrapper {
+        padding: 15px;
+        margin: 0 10px;
+    }
+    .form-group label {
+        font-size: 1em;
+    }
+    .form-group input,
+    .form-group textarea {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    .submit-btn {
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+}

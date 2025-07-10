@@ -1,0 +1,176 @@
+/* --- Estilos para la Página de Contacto con Parallax --- */
+
+/* Contenedor principal para el Parallax */
+.parallax-container {
+    position: relative; /* Necesario para posicionar el fondo y el contenido */
+    height: 100vh; /* O la altura que desees para que el parallax sea visible */
+    overflow: hidden; /* Oculta cualquier desbordamiento de contenido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column; /* Para centrar contenido verticalmente */
+}
+
+/* Fondo del Parallax */
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/portfolio.gif'); /* ¡CAMBIA ESTO! Ruta a tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Esto es clave para el efecto parallax */
+    filter: brightness(0.6); /* Oscurece la imagen para que el texto sea legible */
+    z-index: -1; /* Envía el fondo detrás del contenido */
+}
+
+/* Contenido del formulario sobre el fondo Parallax */
+.form-content {
+    position: relative; /* Asegura que el contenido esté sobre el fondo */
+    z-index: 1; /* Pone el contenido por encima del fondo parallax */
+    color: white; /* Color de texto legible sobre el fondo oscuro */
+    padding: 20px;
+    width: 100%;
+    max-width: 800px; /* Ancho máximo para el contenido */
+    box-sizing: border-box; /* Incluye padding en el ancho */
+}
+
+.form-title {
+    font-family: vint; 
+    font-size: 3.5em; 
+    margin-bottom: 20px; 
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    color: var(--image-overlay-text-color); /* Usamos un color de variable existente */
+}
+
+.form-separator {
+    width: 60%;
+    max-width: 400px;
+    margin: 0 auto 40px auto; 
+    border: none;
+    border-top: 3px solid var(--secondary-color); 
+    opacity: 0.8;
+}
+
+/* Contenedor del formulario centrado */
+.contact-form-wrapper {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente para el formulario */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    text-align: left; /* Alinea el texto dentro del formulario a la izquierda */
+    color: var(--text-color); /* Restablece el color del texto para el formulario */
+    max-width: 600px; /* Ancho máximo del formulario */
+    margin: 0 auto; /* Centra el wrapper horizontalmente */
+}
+
+/* Estilos para cada grupo de formulario (label + input/textarea) */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block; /* Cada label en su propia línea */
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: var(--primary-color); /* Color para las etiquetas */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: bc; /* Usa tu fuente */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color); /* Resalta el borde al enfocar */
+    box-shadow: 0 0 8px rgba(10, 66, 104, 0.2); /* Sombra suave al enfocar */
+    outline: none; /* Quita el contorno por defecto del navegador */
+}
+
+.form-group textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+/* Estilo del botón de envío */
+.submit-btn {
+    display: block; /* Ocupa todo el ancho disponible */
+    width: 100%;
+    padding: 15px 25px;
+    background-color: var(--primary-color); /* Usa tu color primario */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-family: bc;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: #083350; /* Un tono más oscuro del primary color */
+    transform: translateY(-2px); /* Efecto de "levantar" */
+}
+
+/* Media Queries para la página de Contacto */
+@media screen and (max-width: 768px) {
+    .form-title {
+        font-size: 2.8em;
+    }
+    .contact-form-wrapper {
+        padding: 20px;
+        margin: 0 15px; /* Margen a los lados en pantallas pequeñas */
+    }
+    .form-group label,
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.95em;
+    }
+    .submit-btn {
+        padding: 12px 20px;
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .form-title {
+        font-size: 2.2em;
+    }
+    .form-separator {
+        width: 70%;
+    }
+    .contact-form-wrapper {
+        padding: 15px;
+        margin: 0 10px;
+    }
+    .form-group label {
+        font-size: 1em;
+    }
+    .form-group input,
+    .form-group textarea {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    .submit-btn {
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+    .parallax-container {
+        height: auto; /* Permite que el contenedor se ajuste al contenido en móviles */
+        min-height: 100vh; /* Asegura que siga ocupando la pantalla si el contenido es corto */
+        padding-bottom: 50px; /* Espacio extra al final si el contenido es largo */
+    }
+}

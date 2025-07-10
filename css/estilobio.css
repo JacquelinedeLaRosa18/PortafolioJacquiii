@@ -1,8 +1,8 @@
 /* --- Variables de Color --- */
 :root {
-    --primary-color: #1e90ff;
-    --secondary-color: #ff6347;
-    --background-color: #f9f9f9; 
+    --primary-color: #1e90ff; /* Azul por defecto según tu CSS */
+    --secondary-color: #ff6347; /* Rojo por defecto según tu CSS */
+    --background-color: #f9f9f9;
     --text-color: #333333;
     --celeste-box: #ADD8E6;
     --salmon-box: #FA8072;
@@ -15,6 +15,9 @@
     /* Nuevas variables para los cuadros de nombre/bio */
     --box-border-color: #333; /* Color de borde para los cuadros de texto */
     --box-text-color: #333; /* Color de texto para los cuadros */
+
+    /* Añadir esta variable si no existe para el hover del botón */
+    --hover-color: #083350; /* Un tono más oscuro de tu primary-color azul */
 }
 
 /* --- Estilos Generales y del Body --- */
@@ -28,7 +31,7 @@ body {
 
 /* --- Estilos del Paralaje (Imagen de arriba) --- */
 .parallax-hero {
-    background-image: url('../img/portfolio.gif'); 
+    background-image: url('../img/portfolio2.gif');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -125,7 +128,7 @@ header {
     display: block;
 }
 
-/* lineas x del cuadro
+/* lineas x del cuadro (comentado según tu código)
 /* --- Estilos para la línea diagonal en los cuadros 1 y 4 (como en el wireframe) --- */
 /* Nota: Esto es puramente decorativo y se hace con pseudo-elementos *//*
 .grid-item.item-1::before,
@@ -136,10 +139,10 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
-        linear-gradient(to top right, transparent calc(50% - 1px), black, transparent calc(50% + 1px)); /* Diagonal principal 
-    pointer-events: none; /* Asegura que no bloquee el cursor 
-    z-index: 1; /* Para que esté por encima de la imagen 
+    background:
+        linear-gradient(to top right, transparent calc(50% - 1px), black, transparent calc(50% + 1px)); /* Diagonal principal
+    pointer-events: none; /* Asegura que no bloquee el cursor
+    z-index: 1; /* Para que esté por encima de la imagen
 }
 
 
@@ -151,8 +154,8 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
-        linear-gradient(to top left, transparent calc(50% - 1px), black, transparent calc(50% + 1px)); /* Diagonal secundaria 
+    background:
+        linear-gradient(to top left, transparent calc(50% - 1px), black, transparent calc(50% + 1px)); /* Diagonal secundaria
     pointer-events: none;
     z-index: 1;
 }
@@ -167,7 +170,8 @@ header {
     width: 350px; /* Ancho fijo para la columna derecha */
 }
 
-.name-box, .bio-box {
+.name-box,
+.bio-box {
     border: 2px solid black; /* Borde negro como en el wireframe */
     box-sizing: border-box;
     padding: 20px;
@@ -194,6 +198,35 @@ header {
     text-align: left; /* El texto de la biografía alineado a la izquierda */
     font-size: 1em;
     line-height: 1.5;
+}
+
+/* --- Estilos para el Botón de Contacto en la Biografía (Home Page) --- */
+.bio-button-container {
+    text-align: center; /* Centra el botón */
+    margin-top: 20px; /* Espacio encima del botón, ajustado ya que está fuera de bio-box */
+    margin-bottom: 0; /* No es necesario un margen inferior si es el último elemento en la columna */
+}
+
+.bio-contact-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--primary-color); /* Tu color primario (azul)*/
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    /* font-family: bc; */ /* Si tienes una fuente personalizada, actívala */
+    font-size: 1.2em;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.bio-contact-btn:hover {
+    background-color: var(--hover-color); /* Tono más oscuro del primary-color */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -226,13 +259,22 @@ header {
         width: 100%;
         max-width: 350px; /* Límite para los cuadros de texto */
     }
+
+    /* Media Queries para el botón */
+    .bio-contact-btn {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+    .bio-button-container {
+        margin-top: 15px; /* Ajuste para tablets */
+    }
 }
 
 @media (max-width: 600px) {
     .parallax-hero {
         height: 200px;
     }
-    
+
     .topnav a {
         font-size: 12px;
         padding: 8px 10px;
@@ -264,5 +306,15 @@ header {
 
     .bio-box {
         font-size: 0.9em;
+    }
+
+    /* Media Queries para el botón */
+    .bio-contact-btn {
+        width: 90%;
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+    .bio-button-container {
+        margin-top: 10px; /* Ajuste para móviles */
     }
 }
