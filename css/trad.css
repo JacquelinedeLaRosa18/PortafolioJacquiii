@@ -1,23 +1,36 @@
-/* --- Variables de Color --- */
+/* --- Variables de Color (GLOBALES - ajusta aquí para todo el sitio) --- */
 :root {
-    --primary-color: #0a4268; 
-    --secondary-color: #ddd; 
-    --background-general: #f9f9f9; 
-    --text-color: #333333;
-    --nav-bg: #555; 
-    --trad-body-bg-start: #FFCAD4; 
-    --trad-body-bg-end: #ed8696; 
-    --image-overlay-bg: rgba(166, 199, 236, 0.781); 
-    --image-overlay-text-color: rgb(197, 226, 128); 
-    --overlay-details-color: white; 
+    /* Colores primarios para elementos generales */
+    --primary-blue: #0a4268; /* Un azul oscuro, útil para enlaces activos, botones */
+    --secondary-color: #ddd; /* Para fondos de secciones o tarjetas */
+    --light-gray: #f2f2f2; /* Para fondos de secciones o tarjetas */
+    --dark-gray: #333; /* Para texto principal */
 
-    /* Variables para botones de edición */
-    --edit-btn-bg: #4CAF50; /* Verde */
+    /* Colores específicos para el HEADER y NAV */
+    --header-bg: #543144; /* Color oscuro del header donde va el logo del axolote */
+    --nav-bg: #8F3244; /* Color del fondo de la barra de navegación (el color que quieres) */
+    --nav-link-color: #f2f2f2; /* Color de texto de los enlaces del nav */
+    --nav-link-hover-bg: var(--secondary-color); /* Color de fondo al pasar el mouse por los enlaces */
+    --nav-active-link-bg: var(--primary-blue); /* Color del enlace activo en el nav */
+
+    /* Colores para el BODY de la página 'trad.html' (fondo degradado) */
+    --trad-body-bg-start: #FFCAD4; /* Rosa pálido al inicio del degradado */
+    --trad-body-bg-end: #ED8696; /* Rojo rosado al final del degradado */
+
+    /* Colores para el OVERLAY de las imágenes en la galería */
+    --image-overlay-bg: rgba(166, 199, 236, 0.781); /* Fondo azul semitransparente del overlay */
+    --image-overlay-title-color: var(--primary-blue); /* Color del título dentro del overlay */
+    --image-overlay-details-color: white; /* Color del precio/descripción dentro del overlay */
+
+    /* Variables para botones de edición (en la galería) */
+    --edit-btn-bg: #4CAF50; /* Verde para "Editar" */
     --edit-btn-hover: #45a049;
-    --delete-btn-bg: #f44336; /* Rojo */
+    --delete-btn-bg: #f44336; /* Rojo para "Borrar" */
     --delete-btn-hover: #da190b;
-    --toggle-btn-bg: #FFD700; /* Amarillo burbuja */
-    --toggle-btn-text: #333;
+
+    /* Variables para el botón flotante de Modo Edición */
+    --toggle-btn-bg: #FFD700; /* Amarillo para el botón de modo edición */
+    --toggle-btn-text: #333; /* Texto del botón amarillo */
     --toggle-btn-hover: #e0c200;
 
     /* Variables para el mensaje de deshacer */
@@ -25,90 +38,62 @@
     --undo-text-color: white;
     --undo-button-bg: #4CAF50; /* Verde para el botón Deshacer */
     --undo-button-hover: #45a049;
+
+    /* Colores de texto general */
+    --text-color-general: #333333;
 }
 
-/*paralaaax*/
-/* --- Estilos para la Página de Contacto con Parallax --- */
-
-/* Contenedor principal para el Parallax */
-.parallax-container {
-    position: relative; /* Necesario para posicionar el fondo y el contenido */
-    height: 100vh; /* O la altura que desees para que el parallax sea visible */
-    overflow: hidden; /* Oculta cualquier desbordamiento de contenido */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column; /* Para centrar contenido verticalmente */
-}
-
-/* Fondo del Parallax */
-.parallax-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../img/portfolio2.gif'); /* ¡CAMBIA ESTO! Ruta a tu imagen de fondo */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Esto es clave para el efecto parallax */
-    filter: brightness(0.6); /* Oscurece la imagen para que el texto sea legible */
-    z-index: -1; /* Envía el fondo detrás del contenido */
-}
-
-
-
-/* --- Fuentes --- */
-@font-face{
+/* --- Fuentes (Asegúrate de que las rutas sean correctas) --- */
+@font-face {
     font-family: Cherry;
     src: url(../fonts/Cherry.ttf);
 }
-@font-face{
+@font-face {
     font-family: vint;
     src: url(../fonts/metro-retro.regular.ttf);
 }
-@font-face{
+@font-face {
     font-family: bc;
     src: url(../fonts/BarlowCondensed-Bold.ttf);
 }
-@font-face{
+@font-face {
     font-family: bct;
     src: url(../fonts/Josefine.otf);
 }
 
 /* --- Reseteo Básico --- */
-*{
-    margin:0;
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 /* --- Estilos Generales del Body --- */
-body{
-    font-family: bc;
+body {
+    font-family: 'bc', Arial, sans-serif;
     margin: 0;
     padding: 0;
+    /* Fondo específico para 'trad.html' con el degradado rosa/rojo */
     background: linear-gradient(to right, var(--trad-body-bg-start), var(--trad-body-bg-end)); 
-    color: var(--text-color); 
+    color: var(--text-color-general); 
     position: relative; 
     min-height: 100vh; 
+    overflow-x: hidden; /* Evitar scroll horizontal */
 }
 
-/* --- Header y Logo --- */
+/* --- Header y Logo (Parte superior de la página) --- */
 header {
-    background-color: #333;
+    background-color: var(--header-bg); /* Color oscuro del header */
     padding: 10px 20px;
     text-align: center;
     position: relative;
     z-index: 10;
-    height: auto;
     width: 100%;
-    margin: 0;
+    overflow: hidden; /* IMPORTANTE: Esto contiene los elementos flotantes dentro del header */
 }
 
 .logo {
-    display: inline-block;
+    display: inline-block; /* Para el logo del axolote en el header */
 }
 
 .logo img {
@@ -119,17 +104,18 @@ header {
 
 /* --- Navegación (topnav) --- */
 .topnav {
-    background-color: var(--nav-bg);
+    background-color: var(--nav-bg); /* El color #8F3244 para el nav */
     overflow: hidden;
     text-align: center;
     padding: 10px 0;
     width: 100%;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 9;
 }
 
 .topnav a {
     display: inline-block;
-    color: #f2f2f2;
+    color: var(--nav-link-color);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -138,23 +124,23 @@ header {
 }
 
 .topnav a:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--nav-link-hover-bg);
     color: black;
 }
 
 .topnav a.active {
-    background-color: var(--primary-color);
+    background-color: var(--nav-active-link-bg);
     color: white;
 }
 
 /* --- Título de la Galería --- */
 .gallery-title {
-    font-family: vint; 
+    font-family: 'vint', sans-serif; 
     text-align: center;
     margin-top: 50px; 
     margin-bottom: 20px; 
     font-size: 3em; 
-    color: var(--primary-color); 
+    color: var(--primary-blue);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -177,7 +163,7 @@ header {
     margin: 40px auto; 
     padding: 20px; 
     border-radius: 8px; 
-    background-color: rgba(255, 255, 255, 0.8); 
+    background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
 }
 
@@ -202,12 +188,12 @@ header {
     display: block;
 }
 
-/* --- Overlay al pasar el ratón (se mantiene) --- */
+/* --- Overlay al pasar el ratón --- */
 .overlay {
     position: absolute;
     bottom: 0;
     left: 0;
-    background: var(--image-overlay-bg); 
+    background: var(--image-overlay-bg);
     width: 100%;
     height: 100%; 
     opacity: 0; 
@@ -222,14 +208,14 @@ header {
 }
 
 .overlay h2 {
-    color: var(--image-overlay-text-color); 
+    color: var(--image-overlay-title-color);
     font-weight: 700; 
     font-size: 24px; 
     margin-bottom: 5px; 
 }
 
 .overlay p {
-    color: var(--overlay-details-color); 
+    color: var(--image-overlay-details-color);
     font-size: 18px; 
     margin-left: 0; 
 }
@@ -257,7 +243,7 @@ header {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-family: bc; 
+    font-family: 'bc', sans-serif;
     font-size: 16px;
     color: white;
     transition: background-color 0.2s ease;
@@ -291,13 +277,6 @@ body.editing-mode-active .imagen .overlay {
     cursor: default; 
 }
 
-/* Opcional: Deshabilitar el efecto de agrandar al pasar el cursor en modo edición */
-/* body.editing-mode-active .grid-item:hover {
-    transform: none;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1); 
-} */
-
-
 /* --- Botón flotante de "Modo Edición" --- */
 .edit-mode-toggle-btn {
     position: fixed; 
@@ -310,32 +289,63 @@ body.editing-mode-active .imagen .overlay {
     width: 60px; 
     height: 60px; 
     font-size: 14px; 
-    display: flex;
+    display: flex; 
     justify-content: center;
     align-items: center;
     cursor: pointer;
     box-shadow: 0px 4px 10px rgba(0,0,0,0.25); 
     z-index: 100; 
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease, width 0.3s ease, border-radius 0.3s ease, padding 0.3s ease;
+}
+
+/* Estilos para el ICONO dentro del botón de Modo Edición */
+.edit-mode-toggle-btn img.button-icon {
+    width: 28px; 
+    height: 28px;
+    flex-shrink: 0; 
+    margin-right: 0; 
+    filter: invert(0.2);
+}
+
+/* Estilos para el TEXTO (span) dentro del botón de Modo Edición */
+.edit-mode-toggle-btn span {
+    display: none; 
+    margin-left: 0; 
+    white-space: nowrap; 
+    transition: margin-left 0.3s ease; 
 }
 
 .edit-mode-toggle-btn:hover {
     background-color: var(--toggle-btn-hover);
     transform: scale(1.05); 
     box-shadow: 0px 6px 12px rgba(0,0,0,0.3);
+    width: 160px; 
+    border-radius: 8px; 
+    padding: 0 15px; 
 }
 
-/* Estilo para cuando el botón está "activo" (modo edición) */
+.edit-mode-toggle-btn:hover img.button-icon {
+    margin-right: 10px; 
+}
+
+.edit-mode-toggle-btn:hover span {
+    display: inline; 
+}
+
+/* Estilo para cuando el botón de modo edición está "activo" (body.editing-mode-active) */
 body.editing-mode-active .edit-mode-toggle-btn {
-    background-color: var(--primary-color); 
+    background-color: var(--primary-blue);
     color: white;
+}
+body.editing-mode-active .edit-mode-toggle-btn:hover {
+    background-color: #07314d;
 }
 
 
 /* --- Mensaje de Deshacer (Undo Message) --- */
 #undo-message-container {
     position: fixed; 
-    bottom: 90px; 
+    bottom: 90px;
     left: 50%;
     transform: translateX(-50%); 
     background-color: var(--undo-bg-color);
@@ -369,7 +379,7 @@ body.editing-mode-active .edit-mode-toggle-btn {
     padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
-    font-family: bc;
+    font-family: 'bc', sans-serif;
     font-size: 14px;
     transition: background-color 0.2s ease;
 }
@@ -378,15 +388,47 @@ body.editing-mode-active .edit-mode-toggle-btn {
     background-color: var(--undo-button-hover);
 }
 
+/* --- Estilos para la Página de Contacto con Parallax --- */
+/* (Este bloque de parallax debe ir en su propio archivo CSS, por ejemplo 'contact.css',
+   o asegurarse de que los selectores sean específicos para no afectar otras páginas.) */
+
+/* Contenedor principal para el Parallax */
+.parallax-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+/* Fondo del Parallax */
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/portfolio2.gif'); /* ¡CAMBIA ESTO! Ruta a tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: brightness(0.6);
+    z-index: -1;
+}
+
+
 /* --- Media Queries --- */
-@media screen and (max-width:1000px){
-    .contenedor-imagenes{
+@media screen and (max-width: 1000px) {
+    .contenedor-imagenes {
         width: 95%;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-        gap: 20px; 
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
     }
     .contenedor-imagenes .imagen {
-        height: 280px; 
+        height: 280px;
     }
     .gallery-title {
         font-size: 2.5em;
@@ -398,21 +440,28 @@ body.editing-mode-active .edit-mode-toggle-btn {
         bottom: 20px;
         right: 20px;
     }
-    /* Media Query para el mensaje de deshacer */
+    .edit-mode-toggle-btn img.button-icon {
+        width: 24px;
+        height: 24px;
+    }
+    .edit-mode-toggle-btn:hover {
+        width: 140px;
+    }
+
     #undo-message-container {
-        bottom: 80px; 
+        bottom: 80px;
     }
 }
 
-@media screen and (max-width:700px) { 
-    .contenedor-imagenes{
+@media screen and (max-width: 700px) {
+    .contenedor-imagenes {
         width: 90%;
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
         gap: 15px;
     }
-    .contenedor-imagenes .imagen{
-        width: 100%; 
-        height: 250px; 
+    .contenedor-imagenes .imagen {
+        width: 100%;
+        height: 250px;
     }
     .overlay h2 {
         font-size: 20px;
@@ -430,14 +479,21 @@ body.editing-mode-active .edit-mode-toggle-btn {
         bottom: 15px;
         right: 15px;
     }
-    /* Media Query para el mensaje de deshacer (móviles) */
+    .edit-mode-toggle-btn img.button-icon {
+        width: 20px;
+        height: 20px;
+    }
+    .edit-mode-toggle-btn:hover {
+        width: 120px;
+    }
+
     #undo-message-container {
         bottom: 70px;
         padding: 10px 15px;
         font-size: 14px;
         gap: 10px;
-        width: 90%; 
-        box-sizing: border-box; 
+        width: 90%;
+        box-sizing: border-box;
     }
     #undo-message-text {
         font-size: 14px;
@@ -448,15 +504,18 @@ body.editing-mode-active .edit-mode-toggle-btn {
     }
 }
 
-@media screen and (max-width:450px){
-    .gallery-title{ 
+@media screen and (max-width: 450px) {
+    .gallery-title {
         font-size: 1.8em;
     }
-    .contenedor-imagenes{
+    .contenedor-imagenes {
         width: 98%;
         padding: 10px;
     }
-    .contenedor-imagenes .imagen{
-        height: 200px; 
+    .contenedor-imagenes .imagen {
+        height: 200px;
+    }
+    .edit-mode-toggle-btn:hover {
+        width: 100px;
     }
 }

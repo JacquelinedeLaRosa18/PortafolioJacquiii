@@ -1,6 +1,6 @@
 /* --- Variables de Color --- */
 :root {
-    --primary-color: #1e90ff; /* Azul por defecto según tu CSS */
+    --primary-color: #0a2948; /* Azul por defecto según tu CSS */
     --secondary-color: #ff6347; /* Rojo por defecto según tu CSS */
     --background-color: #f9f9f9;
     --text-color: #333333;
@@ -46,7 +46,7 @@ body {
 
 /* --- Estilos del Header --- */
 header {
-    background-color: #333;
+    background-color: #543144;
     padding: 10px 20px;
     text-align: center;
 }
@@ -57,7 +57,7 @@ header {
 
 /* --- Estilos de la Barra de Navegación (topnav) --- */
 .topnav {
-    background-color: #555;
+    background-color: #8F3244;
     overflow: hidden;
     text-align: center;
     padding: 10px 0;

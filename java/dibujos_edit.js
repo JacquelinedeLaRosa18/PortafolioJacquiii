@@ -23,116 +23,98 @@ document.addEventListener('DOMContentLoaded', function() {
 /*cambios -----------------*/
 
 // ../js/dibujos_edit.js
-
-document.addEventListener('DOMContentLoaded', function() {
-    const editModeToggleBtn = document.getElementById('editModeToggle');
-    const body = document.body;
+document.addEventListener('DOMContentLoaded', () => {
+    const editModeToggle = document.getElementById('editModeToggle');
+    const galleryContainer = document.getElementById('gallery-container');
     const undoMessageContainer = document.getElementById('undo-message-container');
     const undoMessageText = document.getElementById('undo-message-text');
     const undoButton = document.getElementById('undo-button');
-    const galleryContainer = document.querySelector('.contenedor-imagenes'); // Selecciona el contenedor de la galería
 
-    let lastDeletedElement = null; // Para almacenar el último elemento eliminado
-    let lastDeletedParent = null; // Para almacenar el padre del elemento eliminado (contenedor)
-    let lastDeletedNextSibling = null; // Para saber dónde reinsertar
-    let undoTimer = null; // Para el temporizador de deshacer
+    let lastDeletedImage = null; // Para almacenar la imagen eliminada para la función de deshacer
 
-    // --- Lógica del botón de Modo Edición ---
-    if (editModeToggleBtn) {
-        editModeToggleBtn.addEventListener('click', function() {
-            body.classList.toggle('editing-mode-active');
+    // Función para activar/desactivar el modo edición
+    editModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('editing-mode-active');
+        
+        // Opcional: Cambiar el texto o el icono del botón de toggle si el modo cambia visualmente
+        // Actualmente, el CSS maneja esto para el hover, pero si quieres un cambio permanente en el texto al clic:
+        // const isEditing = document.body.classList.contains('editing-mode-active');
+        // if (isEditing) {
+        //     editModeToggle.querySelector('span').textContent = 'Salir Edición';
+        //     // Puedes cambiar el src del img aquí si quieres otro icono para el modo activo
+        //     // editModeToggle.querySelector('img').src = 'ruta/a/otro/icono.png';
+        // } else {
+        //     editModeToggle.querySelector('span').textContent = 'Modo Edición';
+        //     // Restablecer el icono original si lo cambiaste
+        //     // editModeToggle.querySelector('img').src = 'ruta/a/icono/original.png';
+        // }
+    });
 
-            if (body.classList.contains('editing-mode-active')) {
-                editModeToggleBtn.textContent = 'Salir Edición';
-            } else {
-                editModeToggleBtn.textContent = 'Modo Edición';
-                // Ocultar mensaje de deshacer si salimos del modo edición
-                hideUndoMessage(); 
+    // Delegación de eventos para los botones de editar y borrar (se añaden dinámicamente)
+    galleryContainer.addEventListener('click', (event) => {
+        const target = event.target;
+        
+        // Lógica para el botón Borrar
+        if (target.classList.contains('delete-btn')) {
+            const imageContainer = target.closest('.imagen');
+            if (imageContainer) {
+                // Guarda la imagen antes de eliminarla
+                lastDeletedImage = imageContainer.cloneNode(true); // Clona para deshacer
+                const parent = imageContainer.parentNode;
+                const nextSibling = imageContainer.nextElementSibling; // Para reinsertar en la posición correcta
+
+                imageContainer.remove(); // Elimina la imagen del DOM
+
+                // Muestra el mensaje de deshacer
+                undoMessageText.textContent = `"${lastDeletedImage.querySelector('h2').textContent}" eliminada.`;
+                undoMessageContainer.classList.add('show');
+
+                // Almacena la referencia para deshacer
+                lastDeletedImage.originalParent = parent;
+                lastDeletedImage.originalNextSibling = nextSibling;
+
+                // Ocultar el mensaje de deshacer automáticamente después de un tiempo
+                setTimeout(() => {
+                    undoMessageContainer.classList.remove('show');
+                }, 5000); // 5 segundos
             }
-        });
-    }
-
-    // --- Lógica de los botones de Eliminar (Delegación de eventos) ---
-    // Usamos delegación de eventos en el contenedor de la galería
-    // para no tener que añadir un listener a cada botón de borrar/editar individualmente.
-    if (galleryContainer) {
-        galleryContainer.addEventListener('click', function(event) {
-            // Si el botón "Borrar" fue clickeado
-            if (event.target.classList.contains('delete-btn')) {
-                const imageContainer = event.target.closest('.imagen'); // Encuentra el div.imagen padre
-                if (imageContainer) {
-                    deleteImage(imageContainer);
-                }
-            }
-            // Si el botón "Editar" fue clickeado (por ahora solo un placeholder)
-            else if (event.target.classList.contains('edit-btn')) {
-                const imageContainer = event.target.closest('.imagen');
-                if (imageContainer) {
-                    const title = imageContainer.querySelector('.overlay h2').textContent;
-                    alert(`Has clickeado en Editar para: ${title}. La funcionalidad de edición no está implementada aún.`);
-                }
-            }
-        });
-    }
-
-    // --- Funciones para la eliminación y el "deshacer" ---
-
-    function deleteImage(elementToDelete) {
-        // Almacena el elemento, su padre y el siguiente hermano para poder deshacer
-        lastDeletedElement = elementToDelete;
-        lastDeletedParent = elementToDelete.parentNode;
-        lastDeletedNextSibling = elementToDelete.nextElementSibling; // Guarda el siguiente hermano
-
-        // Elimina el elemento del DOM
-        elementToDelete.remove();
-
-        // Muestra el mensaje de deshacer
-        showUndoMessage(`"${lastDeletedElement.querySelector('.overlay h2').textContent}" eliminado.`);
-
-        // Inicia el temporizador para la eliminación final
-        startUndoTimer();
-    }
-
-    function showUndoMessage(message) {
-        undoMessageText.textContent = message;
-        undoMessageContainer.classList.add('show');
-
-        // Limpia cualquier temporizador existente
-        if (undoTimer) {
-            clearTimeout(undoTimer);
         }
-    }
 
-    function hideUndoMessage() {
-        undoMessageContainer.classList.remove('show');
-        clearTimeout(undoTimer); // Asegúrate de limpiar el temporizador si se oculta manualmente
-        lastDeletedElement = null; // Limpia la referencia al elemento eliminado
-    }
+        // Lógica para el botón Editar (esto es solo un placeholder, la lógica real de edición iría aquí)
+        if (target.classList.contains('edit-btn')) {
+            const imageContainer = target.closest('.imagen');
+            if (imageContainer) {
+                const titleElement = imageContainer.querySelector('.overlay h2');
+                const priceElement = imageContainer.querySelector('.overlay p');
 
-    function startUndoTimer() {
-        undoTimer = setTimeout(() => {
-            // Esta función se ejecutará después de 10 segundos
-            hideUndoMessage(); // Oculta el mensaje
-            // En este punto, la eliminación se considera "final" (para esta sesión)
-            console.log("Elemento eliminado permanentemente (visual en esta sesión).");
-        }, 10000); // 10,000 milisegundos = 10 segundos
-    }
-
-    // --- Lógica del botón "Deshacer" ---
-    if (undoButton) {
-        undoButton.addEventListener('click', function() {
-            if (lastDeletedElement && lastDeletedParent) {
-                // Reinserta el elemento en su posición original si es posible
-                if (lastDeletedNextSibling) {
-                    lastDeletedParent.insertBefore(lastDeletedElement, lastDeletedNextSibling);
-                } else {
-                    // Si no había siguiente hermano, simplemente añádelo al final del padre
-                    lastDeletedParent.appendChild(lastDeletedElement);
+                // Ejemplo simple: editar directamente el texto (puedes expandir con modales, etc.)
+                const newTitle = prompt('Editar título:', titleElement.textContent);
+                if (newTitle !== null && newTitle.trim() !== '') {
+                    titleElement.textContent = newTitle;
                 }
-                
-                hideUndoMessage(); // Oculta el mensaje de deshacer
-                console.log("Eliminación deshecha.");
+
+                const newPrice = prompt('Editar precio:', priceElement.textContent);
+                if (newPrice !== null && newPrice.trim() !== '') {
+                    priceElement.textContent = newPrice;
+                }
             }
-        });
-    }
+        }
+    });
+
+    // Lógica para el botón Deshacer
+    undoButton.addEventListener('click', () => {
+        if (lastDeletedImage) {
+            const parent = lastDeletedImage.originalParent;
+            const nextSibling = lastDeletedImage.originalNextSibling;
+
+            if (nextSibling) {
+                parent.insertBefore(lastDeletedImage, nextSibling);
+            } else {
+                parent.appendChild(lastDeletedImage);
+            }
+            
+            lastDeletedImage = null; // Limpia la referencia después de deshacer
+            undoMessageContainer.classList.remove('show'); // Oculta el mensaje
+        }
+    });
 });

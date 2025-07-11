@@ -1,13 +1,13 @@
 /* variables.css (si tienes este archivo, los colores ya estarán definidos ahí. Si no, puedes pegarlos aquí) */
 :root {
-    --primary-color: #1e90ff;
+    --primary-color: #0a2948;
     --secondary-color: #ff6347;
     --background-color: #f9f9f9;
     --text-color: #333333;
     --celeste-box: #ADD8E6; /* Celeste claro */
     --salmon-box: #FA8072;  /* Salmón */
-    --button-color-gray: #888888; /* Nuevo color gris para los botones inferiores */
-    --button-hover-gray: #666666; /* Gris más oscuro para el hover */
+    --button-color-gray: #3a2430; /* Nuevo color gris para los botones inferiores */
+    --button-hover-gray: #60324b; /* Gris más oscuro para el hover */
 }
 
 /* --- Estilos Generales y del Body --- */
@@ -25,7 +25,7 @@ body {
 
 /* --- Estilos del Header --- */
 header {
-    background-color: #333; /* Un fondo oscuro para el header */
+    background-color: #543144; /* Un fondo oscuro para el header */
     padding: 10px 20px;
     text-align: center; /* Centra el logo si es un elemento de bloque */
 }
@@ -36,7 +36,7 @@ header {
 
 /* --- Estilos de la Barra de Navegación (topnav) --- */
 .topnav {
-    background-color: #555;
+    background-color: #8F3244;
     overflow: hidden;
     text-align: center; /* Centra los enlaces de navegación */
     padding: 10px 0;
@@ -131,7 +131,7 @@ header {
 
 .button-container a {
     display: inline-block; /* Permite que los botones estén en línea pero tengan padding y margen */
-    background-color: var(--button-color-gray); /* Color gris para los botones */
+    background-color: #0a2948;/*var(--button-color-gray); /* Color gris para los botones */
     color: white;
     padding: 12px 25px; /* Padding interno de los botones */
     text-align: center;
