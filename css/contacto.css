@@ -62,7 +62,7 @@
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.3);
     text-align: left; /* Alinea el texto dentro del formulario a la izquierda */
-    color: var(--text-color); /* Restablece el color del texto para el formulario */
+    color: #282664; /* Restablece el color del texto para el formulario */
     max-width: 600px; /* Ancho máximo del formulario */
     margin: 0 auto; /* Centra el wrapper horizontalmente */
 }
