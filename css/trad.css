@@ -6,9 +6,9 @@
     --light-gray: #f2f2f2; /* Para fondos de secciones o tarjetas */
     --dark-gray: #333; /* Para texto principal */
 
-    /* Colores específicos para el HEADER y NAV */
-    --header-bg: #543144; /* Color oscuro del header donde va el logo del axolote */
-    --nav-bg: #8F3244; /* Color del fondo de la barra de navegación (el color que quieres) */
+    /* Colores específicos para el HEADER y NAV  */
+    --header-bg: #543144; /* Fondo oscuro del header*/
+    --nav-bg: #8F3244; /* Fondo del nav */
     --nav-link-color: #f2f2f2; /* Color de texto de los enlaces del nav */
     --nav-link-hover-bg: var(--secondary-color); /* Color de fondo al pasar el mouse por los enlaces */
     --nav-active-link-bg: var(--primary-blue); /* Color del enlace activo en el nav */
@@ -19,7 +19,7 @@
 
     /* Colores para el OVERLAY de las imágenes en la galería */
     --image-overlay-bg: rgba(166, 199, 236, 0.781); /* Fondo azul semitransparente del overlay */
-    --image-overlay-title-color: var(--primary-blue); /* Color del título dentro del overlay */
+    --image-overlay-title-color: rgb(197, 226, 128); /* Color del título dentro del overlay, ajustado al de "Digital" */
     --image-overlay-details-color: white; /* Color del precio/descripción dentro del overlay */
 
     /* Variables para botones de edición (en la galería) */
@@ -40,13 +40,13 @@
     --undo-button-hover: #45a049;
 
     /* Colores de texto general */
-    --text-color-general: #333333;
+    --text-color-general: #333333; /* Este es el `text-color` de tu CSS de "digital" */
 }
 
 /* --- Fuentes (Asegúrate de que las rutas sean correctas) --- */
 @font-face {
     font-family: Cherry;
-    src: url(../fonts/Cherry.ttf);
+    src: url(../fonts/Cherry.ttf); /* Se asume .ttf como extensión, ajusta si es otra */
 }
 @font-face {
     font-family: vint;
@@ -74,37 +74,37 @@ body {
     margin: 0;
     padding: 0;
     /* Fondo específico para 'trad.html' con el degradado rosa/rojo */
-    background: linear-gradient(to right, var(--trad-body-bg-start), var(--trad-body-bg-end)); 
-    color: var(--text-color-general); 
-    position: relative; 
-    min-height: 100vh; 
+    background: linear-gradient(to right, var(--trad-body-bg-start), var(--trad-body-bg-end));
+    color: var(--text-color-general); /* Usamos la variable general de texto */
+    position: relative;
+    min-height: 100vh;
     overflow-x: hidden; /* Evitar scroll horizontal */
 }
 
-/* --- Header y Logo (Parte superior de la página) --- */
+/* --- Header y Logo --- */
 header {
-    background-color: var(--header-bg); /* Color oscuro del header */
+    background-color: var(--header-bg); /* Color oscuro del header, ahora #333 */
     padding: 10px 20px;
     text-align: center;
     position: relative;
     z-index: 10;
     width: 100%;
-    overflow: hidden; /* IMPORTANTE: Esto contiene los elementos flotantes dentro del header */
+    overflow: hidden; /* Contiene los elementos flotantes dentro del header */
 }
 
 .logo {
-    display: inline-block; /* Para el logo del axolote en el header */
+    display: inline-block;
 }
 
 .logo img {
     height: 50px;
-    float: right; 
+    float: right;
     margin-right: 20px;
 }
 
 /* --- Navegación (topnav) --- */
 .topnav {
-    background-color: var(--nav-bg); /* El color #8F3244 para el nav */
+    background-color: var(--nav-bg); /* El color #555 para el nav */
     overflow: hidden;
     text-align: center;
     padding: 10px 0;
@@ -115,7 +115,7 @@ header {
 
 .topnav a {
     display: inline-block;
-    color: var(--nav-link-color);
+    color: var(--nav-link-color); /* #f2f2f2 */
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -124,67 +124,67 @@ header {
 }
 
 .topnav a:hover {
-    background-color: var(--nav-link-hover-bg);
+    background-color: var(--nav-link-hover-bg); /* var(--secondary-color) que es #ddd */
     color: black;
 }
 
 .topnav a.active {
-    background-color: var(--nav-active-link-bg);
+    background-color: var(--nav-active-link-bg); /* var(--primary-blue) que es #0a4268 */
     color: white;
 }
 
 /* --- Título de la Galería --- */
-.gallery-title {
-    font-family: 'vint', sans-serif; 
+.gallery-title { /* Tu nuevo título para la galería tradicional */
+    font-family: 'vint', sans-serif;
     text-align: center;
-    margin-top: 50px; 
-    margin-bottom: 20px; 
-    font-size: 3em; 
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-size: 3em;
     color: var(--primary-blue);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
-.gallery-separator {
+.gallery-separator { /* Separador debajo del título */
     width: 80%;
     max-width: 600px;
-    margin: 0 auto 50px auto; 
+    margin: 0 auto 50px auto;
     border: none;
-    border-top: 3px solid var(--secondary-color); 
+    border-top: 3px solid var(--secondary-color);
     opacity: 0.7;
 }
 
 /* --- Contenedor Principal de Imágenes (Gallery Grid) --- */
 .contenedor-imagenes {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 25px; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px; /* Ajustado a 25px, de tu CSS original era 30px */
     width: 90%;
     max-width: 1200px;
-    margin: 40px auto; 
-    padding: 20px; 
-    border-radius: 8px; 
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 8px;
     background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .contenedor-imagenes .imagen {
     position: relative;
-    height: 350px; 
+    height: 350px; /* Ajustado de nuevo a 350px para mejor proporción */
     overflow: hidden;
-    border-radius: 8px; 
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contenedor-imagenes .imagen:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2); 
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
 }
 
 .imagen img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
     display: block;
 }
 
@@ -195,33 +195,33 @@ header {
     left: 0;
     background: var(--image-overlay-bg);
     width: 100%;
-    height: 100%; 
-    opacity: 0; 
-    transition: opacity .5s ease; 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    text-align: center; 
-    padding: 10px; 
-    box-sizing: border-box; 
+    height: 100%; /* El overlay cubre el 100% al pasar el ratón, no se expande desde abajo */
+    opacity: 0; /* Inicialmente transparente */
+    transition: opacity .5s ease; /* Transición de opacidad */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .overlay h2 {
-    color: var(--image-overlay-title-color);
-    font-weight: 700; 
-    font-size: 24px; 
-    margin-bottom: 5px; 
+    color: var(--image-overlay-title-color); /* Ahora rgb(197, 226, 128) */
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 5px;
 }
 
 .overlay p {
-    color: var(--image-overlay-details-color);
-    font-size: 18px; 
-    margin-left: 0; 
+    color: var(--image-overlay-details-color); /* Blanco */
+    font-size: 18px;
+    margin-left: 0;
 }
 
 .imagen:hover .overlay {
-    opacity: 1; 
+    opacity: 1; /* Se vuelve visible al pasar el ratón */
     cursor: pointer;
 }
 
@@ -229,11 +229,11 @@ header {
 
 /* Contenedor de botones de edición dentro del overlay */
 .edit-buttons {
-    display: flex; 
-    gap: 10px; 
-    margin-top: 20px; 
-    opacity: 0; 
-    visibility: hidden; 
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    opacity: 0;
+    visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
@@ -268,68 +268,68 @@ header {
 /* Mostrar los botones de edición solo cuando .editing-mode-active esté en el body */
 body.editing-mode-active .edit-buttons {
     opacity: 1;
-    visibility: visible; 
+    visibility: visible;
 }
 
 /* Si el modo edición está activo, siempre mostrar el overlay para poder acceder a los botones */
 body.editing-mode-active .imagen .overlay {
-    opacity: 1; 
-    cursor: default; 
+    opacity: 1;
+    cursor: default;
 }
 
 /* --- Botón flotante de "Modo Edición" --- */
 .edit-mode-toggle-btn {
-    position: fixed; 
-    bottom: 30px; 
-    right: 30px; 
-    background-color: var(--toggle-btn-bg); 
-    color: var(--toggle-btn-text); 
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--toggle-btn-bg); /* Amarillo */
+    color: var(--toggle-btn-text);
     border: none;
-    border-radius: 50%; 
-    width: 60px; 
-    height: 60px; 
-    font-size: 14px; 
-    display: flex; 
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 14px;
+    display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.25); 
-    z-index: 100; 
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.25);
+    z-index: 100;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease, width 0.3s ease, border-radius 0.3s ease, padding 0.3s ease;
 }
 
 /* Estilos para el ICONO dentro del botón de Modo Edición */
 .edit-mode-toggle-btn img.button-icon {
-    width: 28px; 
+    width: 28px;
     height: 28px;
-    flex-shrink: 0; 
-    margin-right: 0; 
+    flex-shrink: 0;
+    margin-right: 0;
     filter: invert(0.2);
 }
 
 /* Estilos para el TEXTO (span) dentro del botón de Modo Edición */
 .edit-mode-toggle-btn span {
-    display: none; 
-    margin-left: 0; 
-    white-space: nowrap; 
-    transition: margin-left 0.3s ease; 
+    display: none;
+    margin-left: 0;
+    white-space: nowrap;
+    transition: margin-left 0.3s ease;
 }
 
 .edit-mode-toggle-btn:hover {
     background-color: var(--toggle-btn-hover);
-    transform: scale(1.05); 
+    transform: scale(1.05);
     box-shadow: 0px 6px 12px rgba(0,0,0,0.3);
-    width: 160px; 
-    border-radius: 8px; 
-    padding: 0 15px; 
+    width: 160px;
+    border-radius: 8px;
+    padding: 0 15px;
 }
 
 .edit-mode-toggle-btn:hover img.button-icon {
-    margin-right: 10px; 
+    margin-right: 10px;
 }
 
 .edit-mode-toggle-btn:hover span {
-    display: inline; 
+    display: inline;
 }
 
 /* Estilo para cuando el botón de modo edición está "activo" (body.editing-mode-active) */
@@ -341,13 +341,12 @@ body.editing-mode-active .edit-mode-toggle-btn:hover {
     background-color: #07314d;
 }
 
-
 /* --- Mensaje de Deshacer (Undo Message) --- */
 #undo-message-container {
-    position: fixed; 
+    position: fixed;
     bottom: 90px;
     left: 50%;
-    transform: translateX(-50%); 
+    transform: translateX(-50%);
     background-color: var(--undo-bg-color);
     color: var(--undo-text-color);
     padding: 15px 25px;
@@ -356,9 +355,9 @@ body.editing-mode-active .edit-mode-toggle-btn:hover {
     display: flex;
     align-items: center;
     gap: 15px;
-    z-index: 101; 
-    opacity: 0; 
-    visibility: hidden; 
+    z-index: 101;
+    opacity: 0;
+    visibility: hidden;
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
@@ -388,43 +387,11 @@ body.editing-mode-active .edit-mode-toggle-btn:hover {
     background-color: var(--undo-button-hover);
 }
 
-/* --- Estilos para la Página de Contacto con Parallax --- */
-/* (Este bloque de parallax debe ir en su propio archivo CSS, por ejemplo 'contact.css',
-   o asegurarse de que los selectores sean específicos para no afectar otras páginas.) */
-
-/* Contenedor principal para el Parallax */
-.parallax-container {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-}
-
-/* Fondo del Parallax */
-.parallax-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../img/portfolio2.gif'); /* ¡CAMBIA ESTO! Ruta a tu imagen de fondo */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    filter: brightness(0.6);
-    z-index: -1;
-}
-
-
 /* --- Media Queries --- */
 @media screen and (max-width: 1000px) {
     .contenedor-imagenes {
         width: 95%;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Revertido a 280px para consistencia */
         gap: 20px;
     }
     .contenedor-imagenes .imagen {
@@ -505,7 +472,8 @@ body.editing-mode-active .edit-mode-toggle-btn:hover {
 }
 
 @media screen and (max-width: 450px) {
-    .gallery-title {
+    /* Aquí se remueve el h1 anterior y se usa .gallery-title */
+    .gallery-title { /* Ajusta el tamaño del título de la galería */
         font-size: 1.8em;
     }
     .contenedor-imagenes {
@@ -513,9 +481,48 @@ body.editing-mode-active .edit-mode-toggle-btn:hover {
         padding: 10px;
     }
     .contenedor-imagenes .imagen {
-        height: 200px;
+        height: 220px;
     }
     .edit-mode-toggle-btn:hover {
         width: 100px;
     }
+}
+
+/* --- Otros Estilos que no se usan o necesitan ser revisados --- */
+/* Estas reglas se mantienen pero su aplicación en tu HTML debe ser consistente */
+.galeria { /* Si no hay un elemento con clase 'galeria', esta regla no tendrá efecto */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.galeria h1 { /* Si no hay un h1 dentro de .galeria, no tendrá efecto */
+    text-align: center;
+    margin: 20px 0 15px 0;
+    font-weight: 300;
+}
+.linea { /* Si no hay un elemento con clase 'linea', no tendrá efecto */
+    border-top: 5px solid #68a4ca;
+    margin-bottom: 40px;
+}
+section { /* Regla muy general, puede afectar elementos no deseados */
+    width: 80%;
+    height: auto;
+    margin-left: 15%;
+}
+.cont { /* Regla muy general, puede afectar elementos no deseados */
+    margin: 10px;
+}
+p {
+    margin-left: 3%; /* IMPORTANTE: Esto afectará a *todos* los párrafos, incluyendo los precios en el overlay si no lo sobreescribes. */
+                      /* Si quieres que los precios estén centrados en el overlay, asegúrate de que el 'margin-left: 0;' en .overlay p sea más específico o tenga `!important`. */
+                      /* En el CSS de "digital", .overlay p ya tiene margin-left: 0; */
+}
+fieldset { /* Estas reglas sugieren un formulario, si no está en trad.html, no se aplicarán */
+    width: 90%;
+    height: auto;
+    background-color: #f3d9d9;
+    float: left;
+    margin-left:8px;
+    margin-top: 10%;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 13px 13px 13px rgba(163, 155, 155, 0.829);
 }
