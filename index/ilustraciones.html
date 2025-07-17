@@ -14,71 +14,71 @@
     <script src="codemirror/codemirror/addon/hint/css-hint.js"></script>
     <link rel="stylesheet" href="codemirror/codemirror/addon/hint/show-hint.css">
 
+    <link rel="icon" type="image/png" href="../img/logo axolot.png"> 
     <link rel="stylesheet" href="/css/trad.css"> 
-    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+
+    </head>
 
 <body>
     <header>
-        <a class="nada"></a> 
         <div class="logo">
-            <img src="../img/logo axolot.png" alt="Logo Axolot"> 
+            <img src="../img/logo axolot.png" alt="Logo Axolotl Space"> 
         </div>
     </header>
 
-    <div class="topnav">
+    <nav class="topnav"> 
         <a href="index.html">INICIO</a>
         <a href="animacion3d.html">ANIMACION 3D</a>
         <a href="animacion2D1.html">ANIMACION 2D</a>
         <a class="active" href="ilustraciones.html">ILUSTRACION</a>
         <a href="dibujos.html">TRADICIONAL</a>
-    </div>
+        <a href="contacto.html">CONTACTO</a> 
+    </nav>
 
-    <h1 class="gallery-title">Galería de Ilustraciones</h1>
-    <hr class="gallery-separator">
-
-    <div class="contenedor-imagenes" id="gallery-container">
-        <div class="imagen">
-            <img src="../img/ilustracion/escena final frame.jpg" alt="Ilustración Escena Final Frame">
+    <h1 class="gallery-title">Galería de Ilustraciones</h1> 
+    <hr class="gallery-separator"> 
+    <div class="contenedor-imagenes" id="gallery-container" data-category="ilustracion">
+        <div class="imagen" data-id="static-escena-final-frame">
+            <img src="../img/ilustracion/escena final frame.jpg" alt="Ilustración Escena Final Frame"> 
             <div class="overlay">
                 <h2>Escena Final Frame</h2>
-                <p>$4.23 Dlls</p>
-                <div class="edit-buttons">
+                <p>$45.00 Dlls</p> 
+                <div class="edit-buttons" style="display: none;">
                     <button class="edit-btn">Editar</button>
                     <button class="delete-btn">Borrar</button>
                 </div>
             </div>
         </div>
-        <div class="imagen">
-            <img src="../img/ilustracion/ilustracion Japones.jpg" alt="Ilustración Japonesa">
+        <div class="imagen" data-id="static-ilustracion-japones">
+            <img src="../img/ilustracion/ilustracion Japones.jpg" alt="Ilustración Japonesa"> 
             <div class="overlay">
                 <h2>Ilustración Japonesa</h2>
-                <p>$4.23 Dlls</p>
-                <div class="edit-buttons">
+                <p>$55.00 Dlls</p> 
+                <div class="edit-buttons" style="display: none;">
                     <button class="edit-btn">Editar</button>
                     <button class="delete-btn">Borrar</button>
                 </div>
             </div>
         </div>
-        <div class="imagen">
-            <img src="../img/ilustracion/poster tmnt.jpg" alt="Póster TMNT">
+        <div class="imagen" data-id="static-poster-tmnt">
+            <img src="../img/ilustracion/poster tmnt.jpg" alt="Póster TMNT"> 
             <div class="overlay">
                 <h2>Póster TMNT</h2>
-                <p>$4.23 Dlls</p>
-                <div class="edit-buttons">
+                <p>$60.00 Dlls</p> 
+                <div class="edit-buttons" style="display: none;">
                     <button class="edit-btn">Editar</button>
                     <button class="delete-btn">Borrar</button>
                 </div>
             </div>
         </div>
-        <div class="imagen">
-            <img src="../img/ilustracion/camisa proyecto v.5.png" alt="Diseño de Camisa v.7">
+        <div class="imagen" data-id="static-black-boots-design">
+            <img src="../img/ilustracion/camisa proyecto v.5.png" alt=" Black Boots"> 
             <div class="overlay">
                 <h2>Black Boots Diseño</h2>
-                <p>$4.23 Dlls</p>
-                <div class="edit-buttons">
+                <p>No a la Venta</p> 
+                <div class="edit-buttons" style="display: none;">
                     <button class="edit-btn">Editar</button>
                     <button class="delete-btn">Borrar</button>
                 </div>
@@ -92,8 +92,7 @@
     </div>
 
     <button class="edit-mode-toggle-btn" id="editModeToggle">
-        <img src="/img/icons/lapiz.png" alt="Modo Edición" class="button-icon">
-        <span>Modo Edición</span>
+        <img src="../img/icons/lapiz.png" alt="Modo Edición" class="button-icon"> <span>Modo Edición</span>
     </button>
 
     <script src="/java/dibujos_edit.js"></script> 

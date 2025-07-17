@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Nueva Publicación - Portafolio</title>
+    <link rel="stylesheet" href="/css/trad.css"> 
+    <link rel="stylesheet" href="/css/subirpubli.css"> 
+    <link rel="icon" type="image/png" href="../img/logo axolot.png">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../img/logo axolot.png" alt="Logo Axolotl Space"> 
+        </div>
+    </header>
+
+    <nav class="topnav">
+        <a href="index.html">INICIO</a>
+        <a href="animacion3d.html">ANIMACION 3D</a>
+        <a href="animacion2D1.html">ANIMACION 2D</a>
+        <a href="ilustraciones.html">ILUSTRACION</a>
+        <a href="dibujos.html">TRADICIONAL</a>
+        <a href="contacto.html">CONTACTO</a>
+    </nav>
+
+    <div class="upload-container">
+        <h1 class="upload-header">Cargar Nueva Publicación</h1>
+        <div class="upload-content">
+            <div class="upload-left-panel">
+                <h3>Selecciona tu Imagen/Video</h3>
+                <div class="image-preview-container">
+                    <img id="imagePreview" src="#" alt="Vista previa de la imagen" style="display: none;">
+                    </div>
+                <div class="file-input-wrapper">
+                    <button type="button" class="file-input-button">Examinar Archivos</button>
+                    <input type="file" id="imageUploadInput" accept="image/*,video/*">
+                </div>
+                <div id="fileNameDisplay">Ningún archivo seleccionado</div>
+            </div>
+
+            <div class="upload-right-panel">
+                <h3>Detalles de la Publicación</h3>
+                <form id="postDetailsForm"> <label for="postTitle">Título:</label>
+                    <input type="text" id="postTitle" placeholder="Nombre de la obra" required>
+
+                    <label for="postPrice">Precio (opcional):</label>
+                    <input type="text" id="postPrice" placeholder="$X.XX Dlls o 'No a la Venta'">
+
+                    <label for="postCategory">Subir a Galería:</label>
+                    <select id="postCategory" required>
+                        <option value="">Selecciona una galería</option>
+                        <option value="ilustracion">Ilustración</option>
+                        <option value="tradicional">Tradicional</option>
+                        <option value="animacion3d" disabled>Animación 3D </option>
+                        <option value="animacion2d" disabled>Animación 2D </option>
+                    </select>
+
+                    <button type="submit" id="submitPostBtn">Subir Publicación</button>
+                </form>
+                <div id="uploadOverallStatus"></div> </div>
+        </div>
+    </div>
+    
+    <script src="/java/upload.js"></script> 
+</body>
+</html>

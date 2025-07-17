@@ -55,7 +55,7 @@
     opacity: 0.8;
 }
 
-/* Contenedor del formulario centrado */
+/*  formulario centrado */
 .contact-form-wrapper {
     background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente para el formulario */
     padding: 30px;
@@ -67,13 +67,13 @@
     margin: 0 auto; /* Centra el wrapper horizontalmente */
 }
 
-/* Estilos para cada grupo de formulario (label + input/textarea) */
+/* Estilos para cada grupo de formulario */
 .form-group {
     margin-bottom: 20px;
 }
 
 .form-group label {
-    display: block; /* Cada label en su propia línea */
+    display: block; 
     margin-bottom: 8px;
     font-weight: bold;
     font-size: 1.1em;
@@ -110,7 +110,7 @@
     display: block; /* Ocupa todo el ancho disponible */
     width: 100%;
     padding: 15px 25px;
-    background-color: var(--primary-color); /* Usa tu color primario */
+    background-color: var(--primary-color); 
     color: white;
     border: none;
     border-radius: 5px;
@@ -121,7 +121,7 @@
 }
 
 .submit-btn:hover {
-    background-color: #083350; /* Un tono más oscuro del primary color */
+    background-color: #083350; 
     transform: translateY(-2px); /* Efecto de "levantar" */
 }
 

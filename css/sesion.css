@@ -1,4 +1,4 @@
-/* --- Variables de Color (Ajustadas para el nuevo degradado y el formato de la segunda imagen) --- */
+
 :root {
     --primary-color: #0a4268; /* Azul oscuro para texto y botones */
     --secondary-color: #ddd; /* Gris claro */
@@ -6,7 +6,7 @@
     --background-color-top-left: #66CDAA ; /* Azul oscuro para la esquina superior izquierda */
     --background-color-bottom-right: #4682B4; /* Azul más brillante para la esquina inferior derecha */
 
-    /* Colores para el formulario, similar */
+    /* Colores para el formulario,  */
     --form-bg: rgba(255, 255, 255, 0.95); /* Fondo casi blanco para el formulario */
     --form-border-gradient-start: #20B2AA; /* Degradado para el marco del formulario */
     --form-border-gradient-end: #1E90FF  ;
@@ -21,7 +21,6 @@
     --error-color: #e74c3c; /* Rojo para mensajes de error */
 }
 
-/* --- Fuentes (Asegúrate de que las rutas sean correctas) --- */
 @font-face {
     font-family: Cherry;
     src: url(../fonts/Cherry.ttf);

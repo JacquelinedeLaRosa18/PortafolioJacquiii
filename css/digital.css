@@ -1,14 +1,14 @@
-/* --- Variables de Color (Puedes tomar estas de tu archivo estilo.css general si ya las tienes) --- */
+
 :root {
-    --primary-color: #0a4268; /* Azul oscuro (del active del nav) */
-    --secondary-color: #ddd; /* Gris claro para hover del nav */
-    --background-general: #f9f9f9; /* Un fondo general si se usa */
-    --text-color: #333333; /* Color de texto general */
-    --nav-bg: #555; /* Fondo del nav, ajustado si quieres el mismo color que en index */
-    --trad-body-bg-start: #FFCAD4; /* Color de inicio para el degradado del body */
-    --trad-body-bg-end: #ed8696;   /* Color final para el degradado del body */
-    --image-overlay-bg: rgba(166, 199, 236, 0.781); /* Fondo del overlay de imagen */
-    --image-overlay-text-color: rgb(197, 226, 128); /* Color del texto en el overlay */
+    --primary-color: #0a4268; 
+    --secondary-color: #ddd; 
+    --background-general: #f9f9f9;
+    --text-color: #333333; 
+    --nav-bg: #555; 
+    --trad-body-bg-start: #FFCAD4; 
+    --trad-body-bg-end: #ed8696;  
+    --image-overlay-bg: rgba(166, 199, 236, 0.781); 
+    --image-overlay-text-color: rgb(197, 226, 128); 
 }
 /*
 @font-face{

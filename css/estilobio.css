@@ -1,7 +1,7 @@
 /* --- Variables de Color --- */
 :root {
-    --primary-color: #0a2948; /* Azul por defecto según tu CSS */
-    --secondary-color: #ff6347; /* Rojo por defecto según tu CSS */
+    --primary-color: #0a2948; 
+    --secondary-color: #ff6347; 
     --background-color: #f9f9f9;
     --text-color: #333333;
     --celeste-box: #ADD8E6;
@@ -13,11 +13,11 @@
     --label-bg-color: rgba(0, 0, 0, 0.6);
 
     /* Nuevas variables para los cuadros de nombre/bio */
-    --box-border-color: #333; /* Color de borde para los cuadros de texto */
-    --box-text-color: #333; /* Color de texto para los cuadros */
+    --box-border-color: #333; 
+    --box-text-color: #333; 
 
     /* Añadir esta variable si no existe para el hover del botón */
-    --hover-color: #083350; /* Un tono más oscuro de tu primary-color azul */
+    --hover-color: #083350;
 }
 
 /* --- Estilos Generales y del Body --- */
@@ -29,7 +29,7 @@ body {
     color: var(--text-color);
 }
 
-/* --- Estilos del Paralaje (Imagen de arriba) --- */
+
 .parallax-hero {
     background-image: url('../img/portfolio2.gif');
     background-attachment: fixed;
@@ -128,38 +128,6 @@ header {
     display: block;
 }
 
-/* lineas x del cuadro (comentado según tu código)
-/* --- Estilos para la línea diagonal en los cuadros 1 y 4 (como en el wireframe) --- */
-/* Nota: Esto es puramente decorativo y se hace con pseudo-elementos *//*
-.grid-item.item-1::before,
-.grid-item.item-4::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-        linear-gradient(to top right, transparent calc(50% - 1px), black, transparent calc(50% + 1px)); /* Diagonal principal
-    pointer-events: none; /* Asegura que no bloquee el cursor
-    z-index: 1; /* Para que esté por encima de la imagen
-}
-
-
-.grid-item.item-1::after,
-.grid-item.item-4::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-        linear-gradient(to top left, transparent calc(50% - 1px), black, transparent calc(50% + 1px)); /* Diagonal secundaria
-    pointer-events: none;
-    z-index: 1;
-}
-*/
 
 /* --- Columna Derecha: Cuadros de Nombre y Biografía --- */
 .right-column {
@@ -172,7 +140,7 @@ header {
 
 .name-box,
 .bio-box {
-    border: 2px solid black; /* Borde negro como en el wireframe */
+   /* border: 2px solid black; /* Borde negro como en el wireframe */
     box-sizing: border-box;
     padding: 20px;
     background-color: white;
@@ -181,7 +149,7 @@ header {
 }
 
 .name-box {
-    height: 80px; /* Altura del cuadro de nombre, ajusta si es necesario */
+    height: 80px; /* Altura del cuadro de nombre */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -210,12 +178,12 @@ header {
 .bio-contact-btn {
     display: inline-block;
     padding: 15px 30px;
-    background-color: var(--primary-color); /* Tu color primario (azul)*/
+    background-color: var(--primary-color); 
     color: white;
     border: none;
     border-radius: 8px;
     text-decoration: none;
-    /* font-family: bc; */ /* Si tienes una fuente personalizada, actívala */
+
     font-size: 1.2em;
     font-weight: bold;
     letter-spacing: 0.5px;
@@ -224,7 +192,7 @@ header {
 }
 
 .bio-contact-btn:hover {
-    background-color: var(--hover-color); /* Tono más oscuro del primary-color */
+    background-color: var(--hover-color); 
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }

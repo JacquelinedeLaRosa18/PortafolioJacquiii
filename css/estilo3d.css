@@ -1,13 +1,13 @@
-/* variables.css (si tienes este archivo, los colores ya estarán definidos ahí. Si no, puedes pegarlos aquí) */
+
 :root {
     --primary-color: #0a2948;
     --secondary-color: #ff6347;
     --background-color: #f9f9f9;
     --text-color: #333333;
-    --celeste-box: #ADD8E6; /* Celeste claro */
-    --salmon-box: #FA8072;  /* Salmón */
-    --button-color-gray: #3a2430; /* Nuevo color gris para los botones inferiores */
-    --button-hover-gray: #60324b; /* Gris más oscuro para el hover */
+    --celeste-box: #ADD8E6; 
+    --salmon-box: #FA8072; 
+    --button-color-gray: #3a2430; /*  botones inferiores */
+    --button-hover-gray: #60324b; /*  el hover */
 }
 
 /* --- Estilos Generales y del Body --- */
@@ -17,21 +17,18 @@ body {
     padding: 0;
     background-color: var(--background-color); /* Usamos la variable para el color de fondo */
     color: var(--text-color); /* Usamos la variable para el color de texto */
-    /* Para el fondo de imagen, si lo quieres: */
-    /* background-image: url('../img/backg.jpg'); */
-    /* background-size: cover; */
-    /* background-attachment: fixed; */
+
 }
 
 /* --- Estilos del Header --- */
 header {
-    background-color: #543144; /* Un fondo oscuro para el header */
+    background-color: #543144; 
     padding: 10px 20px;
-    text-align: center; /* Centra el logo si es un elemento de bloque */
+    text-align: center; /* Centra el logo  */
 }
 
 .logo img {
-    height: 50px; /* Ajusta el tamaño del logo según necesites */
+    height: 50px; /* Ajuste el tamaño del logo */
 }
 
 /* --- Estilos de la Barra de Navegación (topnav) --- */
@@ -99,7 +96,7 @@ header {
 }
 
 .description-box {
-    background-color: var(--salmon-box); /* Color salmón para la descripción */
+    background-color: var(--salmon-box); 
     padding: 20px;
     border-radius: 5px;
     line-height: 1.6; /* Mejora la legibilidad del texto */
@@ -108,7 +105,7 @@ header {
     max-width: 450px; /* Limita el ancho de la descripción */
 }
 
-/* --- Estilos de la Sección de Video (derecha) --- */
+/* --- Estilos de la Sección de Video --- */
 .video-section {
     flex-shrink: 0; /* Evita que el video se encoja si no hay suficiente espacio */
     padding: 10px; /* Espacio alrededor del video */
@@ -131,7 +128,7 @@ header {
 
 .button-container a {
     display: inline-block; /* Permite que los botones estén en línea pero tengan padding y margen */
-    background-color: #0a2948;/*var(--button-color-gray); /* Color gris para los botones */
+    background-color: #0a2948;
     color: white;
     padding: 12px 25px; /* Padding interno de los botones */
     text-align: center;

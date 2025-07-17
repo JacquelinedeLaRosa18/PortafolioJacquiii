@@ -1,4 +1,4 @@
-/* --- Variables de Color --- */
+
 :root {
     --primary-color: #0a2948;
     --secondary-color: #ff6347;
@@ -22,9 +22,9 @@ body {
     color: var(--text-color);
 }
 
-/* --- Estilos del Paralaje (Imagen de arriba) --- */
+/* --- Estilos del Paralax*/
 .parallax-hero {
-    background-image: url('../img/portfolio.gif'); /* Ajusta la ruta si es necesario */
+    background-image: url('../img/portfolio.gif');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -93,7 +93,7 @@ header {
     padding-bottom: 40px;
 }
 
-/* --- Estilos de la Sección de Perfil (izquierda) --- */
+/* --- Estilos de la Sección de Perfil --- */
 .profile-section {
     flex-shrink: 0; /* No se encogerá */
     width: 300px; /* Ancho fijo para la columna de perfil */
@@ -139,7 +139,7 @@ header {
     transform: scale(1.05);
 }
 
-/* --- Estilos de la Sección de Categorías (derecha) --- */
+/* --- Estilos de la Sección de Categorías--- */
 .categories-section {
     display: flex;
     flex-direction: column; /* Apila los elementos verticalmente */
@@ -161,7 +161,7 @@ header {
 .category-slide {
     /* Aquí es donde definimos las dimensiones rectangulares */
     width: 100%; /* Ocupa el 100% del ancho disponible en su contenedor (.categories-section) */
-    height: 150px; /* ALTURA de cada rectángulo. Ajusta este valor si lo quieres más alto o bajo. */
+    height: 150px; /* ALTURA de cada rectángulo.*/
     border-radius: 8px; /* Bordes redondeados */
     overflow: hidden;
     position: relative;
